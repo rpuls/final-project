@@ -14,12 +14,21 @@ public class CardScript : MonoBehaviour {
 	void Update () {
 		
 	}
+	float turnSpeed = 2f;
 
 	public void FlipCard(GameObject otherCard){
-		iTween.RotateTo (gameObject, new Vector3 (0, 90, 0), 3f);
-		otherCard.transform.Rotate(new Vector3(0,90,0));
-		otherCard.SetActive (true);
-		gameObject.SetActive (false);
-		iTween.RotateTo(otherCard, new Vector3 (0, 180, 0), 3f);
+		StartCoroutine (TurnCard(otherCard));
+		otherCard.transform.Rotate (0, 90, 0);
+
 	}
+
+	public IEnumerator TurnCard(GameObject otherCard){
+		iTween.RotateTo (gameObject, new Vector3 (0, 90, 0), turnSpeed);
+		yield return new WaitForSeconds (turnSpeed);
+//		gameObject.SetActive (false);
+//		otherCard.SetActive (true);
+		iTween.RotateTo (otherCard, new Vector3 (0, 180, 0), turnSpeed);
+		yield return new WaitForSeconds (turnSpeed);
+	}
+
 }
