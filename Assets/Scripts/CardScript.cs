@@ -19,5 +19,6 @@ public class CardScript : MonoBehaviour {
 	public void FlipCard(){
 		print ("test");
 		gameObject.transform.Rotate(new Vector3(0,0,180));
+
 	}
 }
