@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardScript : MonoBehaviour {
-
-	//GameObject selectedCard;
+	
 
 	// Use this for initialization
 	void Start () {
-		//selectedCard = GameOGetComponent;
+		
 	}
 	
 	// Update is called once per frame
@@ -16,9 +15,11 @@ public class CardScript : MonoBehaviour {
 		
 	}
 
-	public void FlipCard(){
-		print ("test");
-		gameObject.transform.Rotate(new Vector3(0,0,180));
-
+	public void FlipCard(GameObject otherCard){
+		iTween.RotateTo (gameObject, new Vector3 (0, 90, 0), 3f);
+		otherCard.transform.Rotate(new Vector3(0,90,0));
+		otherCard.SetActive (true);
+		gameObject.SetActive (false);
+		iTween.RotateTo(otherCard, new Vector3 (0, 180, 0), 3f);
 	}
 }
