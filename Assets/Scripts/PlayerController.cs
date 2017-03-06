@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
-    void Start(){
+     public override void OnStartClient(){
         CreatePlayer();
     }
 
@@ -16,7 +16,6 @@ public class PlayerController : NetworkBehaviour {
 
     void Update()
     {
-
 		if (!isLocalPlayer)
 		{
     		return;
