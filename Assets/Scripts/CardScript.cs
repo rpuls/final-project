@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardScript : MonoBehaviour {
-	
+
+	public List<GameObject> attackCards;
+	float turnSpeed = 2f;
 
 	// Use this for initialization
 	void Start () {
@@ -14,11 +16,12 @@ public class CardScript : MonoBehaviour {
 	void Update () {
 		
 	}
-	float turnSpeed = 2f;
 
-	public void FlipCard(GameObject otherCard){
-		StartCoroutine (TurnCard(otherCard));
-		otherCard.transform.Rotate (0, 90, 0);
+
+	public void FlipCard(){
+		GameObject newĆard = attackCards [Random.Range( 0, attackCards.Count )];
+		StartCoroutine (TurnCard(newĆard));
+		newĆard.transform.Rotate (0, 90, 0);
 
 	}
 
@@ -26,7 +29,7 @@ public class CardScript : MonoBehaviour {
 		iTween.RotateTo (gameObject, new Vector3 (0, 90, 0), turnSpeed);
 		yield return new WaitForSeconds (turnSpeed);
 //		gameObject.SetActive (false);
-//		otherCard.SetActive (true);
+		otherCard.SetActive (true);
 		iTween.RotateTo (otherCard, new Vector3 (0, 180, 0), turnSpeed);
 		yield return new WaitForSeconds (turnSpeed);
 	}
