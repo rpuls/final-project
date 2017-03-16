@@ -3,8 +3,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
-
-     public override void OnStartClient(){
+    public GameObject cb;
+    public override void OnStartClient(){
         CreatePlayer();
     }
 
