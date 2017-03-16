@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardScript : MonoBehaviour {
 
 	public List<GameObject> attackCards;
-	float turnSpeed = 2f;
+	public static float animationSpeed = 2f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,13 +25,21 @@ public class CardScript : MonoBehaviour {
 
 	}
 
+	Hashtable flip1 = iTween.Hash("y", 90, "time", animationSpeed,"easetype", iTween.EaseType.easeInQuad);
+	Hashtable flip2 = iTween.Hash("y", 180, "time", animationSpeed, "easetype", iTween.EaseType.easeOutQuart);
+	Hashtable moveToCenter = iTween.Hash("x", 730, "y", 350, "time", animationSpeed);
+	Hashtable scale = iTween.Hash("x", 2, "y", 2, "time", animationSpeed);
+
+
 	public IEnumerator TurnCard(GameObject otherCard){
-		iTween.RotateTo (gameObject, new Vector3 (0, 90, 0), turnSpeed);
-		yield return new WaitForSeconds (turnSpeed);
-//		gameObject.SetActive (false);
+		iTween.RotateTo (gameObject, flip1);
+		yield return new WaitForSeconds (animationSpeed);
+		gameObject.SetActive (false);
 		otherCard.SetActive (true);
-		iTween.RotateTo (otherCard, new Vector3 (0, 180, 0), turnSpeed);
-		yield return new WaitForSeconds (turnSpeed);
+		iTween.RotateTo (otherCard, flip2);
+		iTween.MoveTo (otherCard, moveToCenter);
+		iTween.ScaleTo (otherCard, scale);
+		yield return new WaitForSeconds (animationSpeed);
 	}
 
 }
