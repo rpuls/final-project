@@ -10,8 +10,38 @@ public class PlayerController : NetworkBehaviour {
 
     private void CreatePlayer()
     {
-        Vector3 startPosition = new Vector3(20f,4.7f,54.9f);
-        transform.position= startPosition;
+        Network.connections.GetLength(0);
+        Gamestate.playercount++;
+        int pNumber = Gamestate.playercount;
+
+        print(pNumber);
+        if (pNumber == 1)
+        {
+            Vector3 startPosition = new Vector3(130.8f, 4.7f, 54.9f);
+            Vector3 startRotation = new Vector3(0.462f, -85.065f, -0.495f);
+            transform.position = startPosition;
+            transform.eulerAngles = startRotation;
+            transform.localScale = new Vector3(10, 10, 10);
+        }
+        else if (pNumber == 2)
+        {
+            Vector3 startPosition = new Vector3(-130.8f, 4.7f, 54.9f);
+            Vector3 startRotation = new Vector3(0.462f, -85.065f, -0.495f);
+            transform.position = startPosition;
+            transform.eulerAngles = startRotation;
+            transform.localScale = new Vector3(10, 10, 10);
+        }
+        else print(pNumber + " players connected already!");
+    }
+    public void Fire()
+    {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        print("Fire!");
+        GameObject clone = GameObject.Instantiate(cb, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+        clone.GetComponent<Rigidbody>().AddForce(new Vector3(5, 5, 5));
     }
 
     void Update()
