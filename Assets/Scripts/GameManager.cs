@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void createPlayer(){
-		GameObject.Find ("Name Input").GetComponent< find type her> ();
+		//GameObject.Find ("Name Input").GetComponent< find type her> ();
 		GameObject.Find ("Label").GetComponent<TextMesh> ();
 		//instanciate
 
