@@ -7,7 +7,7 @@ public class WelcomeButtons : MonoBehaviour {
 
 
 	public void GoToMain(){
-		Debug.Log("Stop");
+		Debug.Log("Stopddd" );
 
 		SceneManager.LoadScene ("main");
 	}
