@@ -4,33 +4,41 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public CameraView cv;
     // Use this for initialization
     void Start()
     {
         //cv = CameraView.Center;
     }
 
-    // Update is called once per frame
-    void Update()
+   public static void  ChangeCamera(CameraView cv)
     {
+        GameObject camera = GameObject.Find("Main Camera");
+
         if (cv == CameraView.Center)
         {
             //print("Center");
-            gameObject.transform.position.Set(0f, 49.1f, 254.6f);
-            gameObject.transform.rotation.Set(5.482f, 182.834f, 0.271f, 0);
+            camera.transform.position = new Vector3(0f, 49.1f, 254.6f);
+            camera.transform.eulerAngles = new Vector3(5.482f, 182.834f, 0.271f);
+
+            //camera.transform.position.Set(0f, 49.1f, 254.6f);
+            //camera.transform.rotation.Set(5.482f, 182.834f, 0.271f, 0);
         }
         else if (cv == CameraView.P1)
         {
             //print("P1");
-            transform.position = new Vector3(169.9f, 34.9f, 63.3f);
-            transform.eulerAngles = new Vector3(5.482f, -86f, -0.271f);
+            camera.transform.position = new Vector3(-205.4f, 55.2f, 60.7f);
+            camera.transform.eulerAngles = new Vector3(18.091f, 92.86f, 0.9f);
+
+            //camera.transform.position.Set(-205.4f, 55.2f, 60.7f);
+            //camera.transform.rotation.Set(18.091f, 92.86f,0.9f, 0);
         }
         else if (cv == CameraView.P2)
         {
             //print("P2");
-            gameObject.transform.position.Set(0f, 49.1f, 63.3f);
-            gameObject.transform.rotation.Set(5.482f, -86f, -0.271f, 0);
+            camera.transform.position = new Vector3(261.8f, 81f, 62.2f);
+            camera.transform.eulerAngles = new Vector3(21.75f, -91.04f, 1.4f);
+            //camera.transform.position.Set(261.8f, 81f, 62.2f);
+            //camera.transform.rotation.Set(21.75f, -91.04f, 1.4f, 0);
         }
 
     }
