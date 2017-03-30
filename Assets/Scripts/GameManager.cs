@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
         {
             SetUpPlayerclass(playerTwo);
             SetUpPlayerUserName(playerTwo);
-            SceneManager.LoadScene("main");
+            SceneManager.LoadScene("main - Kopi");
         }
 	}
 
