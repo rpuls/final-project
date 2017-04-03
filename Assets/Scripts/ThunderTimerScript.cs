@@ -15,38 +15,41 @@ public class ThunderTimerScript : MonoBehaviour {
 	private float tempTime;							// Used for delay
 	// Use this for initialization
 	void Start (){
-		
+		m_ThunderStrikeSound = GameObject.FindGameObjectWithTag("Thunder").GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 
 	void Update (){
-		if (move) {
-			moveCloud ();
-		}
+		MoveCloud ();
+		Shoot ();
+	}
 
+	private void Shoot(){
 		if (Input.GetKeyDown ("space")) {
 			move = false;
+			m_ThunderStrikeSound.Play ();
 		}
 	}
 
-
-	public void moveCloud (){
-		tempTime += Time.deltaTime;
-		if (tempTime > 0.01) {
-			tempTime = 0;
-			if (isMovingFoward) {
-				position += 0.03f;
-				if (position >= 0.99f) {
-					isMovingFoward = false;
+	public void MoveCloud (){
+		if (move) {
+			tempTime += Time.deltaTime;
+			if (tempTime > 0.01) {
+				tempTime = 0;
+				if (isMovingFoward) {
+					position += 0.03f;
+					if (position >= 0.99f) {
+						isMovingFoward = false;
+					}
+				} else {
+					position -= 0.03f;
+					if (position <= 0.01f) {
+						isMovingFoward = true;
+					}
 				}
-			} else {
-				position -= 0.03f;
-				if (position <= 0.01f) {
-					isMovingFoward = true;
-				}
+				m_Slider.value = position;
 			}
-			m_Slider.value = position;
 		}
 	}
 }

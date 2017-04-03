@@ -8,6 +8,7 @@ TagManager:
   - PlayerUserName
   - Cannon
   - castle
+  - Thunder
   layers:
   - Default
   - TransparentFX
