@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &430986
 Transform:
   m_ObjectHideFlags: 1
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 5.1, z: -13.3}
+  m_LocalPosition: {x: -12, y: 5.1, z: -13.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 430986}
@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 189.3, z: 0}
+  m_LocalPosition: {x: -4, y: 228, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 430986}
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb4d413de9f1d541915329635c9f2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartObject: {fileID: 0}
+  StartObject: {fileID: 156244}
   StartPosition: {x: 0, y: 0, z: 0}
-  EndObject: {fileID: 103226}
+  EndObject: {fileID: 0}
   EndPosition: {x: 0, y: 0, z: 0}
   Generations: 3
   Duration: 0.03
