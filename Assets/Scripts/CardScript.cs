@@ -7,13 +7,16 @@ public class CardScript : MonoBehaviour {
 	public List<GameObject> attackCards;
 	public static float animationSpeed = 2f;
 
+	//private static Vector3 centerPos;
+	private static int middleX = Screen.width / 2;
+	private static int middleY = Screen.height / 2;
 
 	//hashtables for itween
 
 	//flip
 	Hashtable flip1 = iTween.Hash("y", 90, "time", animationSpeed,"easetype", iTween.EaseType.easeInQuad);
 	Hashtable flip2 = iTween.Hash("y", 180, "time", animationSpeed, "easetype", iTween.EaseType.easeOutQuart);
-	Hashtable moveToCenter = iTween.Hash("x", Screen.width/2, "y", Screen.height/2, "time", animationSpeed);
+	Hashtable moveToCenter = iTween.Hash("x", middleX, "y", middleY, "time", animationSpeed);
 	Hashtable scaleX2 = iTween.Hash("x", 2, "y", 2, "time", animationSpeed);
 	//pick
 	Hashtable scaleX05 = iTween.Hash("x", 0.5f, "y", 0.5f, "time", animationSpeed);
