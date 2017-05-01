@@ -6,10 +6,12 @@ public class PlayerStats : MonoBehaviour {
 
 	public string gameClass { get; set;}
 	public string userName { get; set; }
+    public int lifeLeft { get; set; }
 
 	// Use this for initialization
 	void Start () {
         UnityEngine.Object.DontDestroyOnLoad(this);
+        lifeLeft = 100;
     }
 	
 	// Update is called once per frame
