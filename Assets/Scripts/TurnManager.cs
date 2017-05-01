@@ -12,14 +12,32 @@ public class TurnManager : MonoBehaviour {
 	void Start () {
         // This gets the Game Manager from the GameManager Object!
         GameObject gameManager = GameObject.Find("Game Manager");
-        GameManager = gameManager.GetComponent<GameManager>();
+        try
+        {
+            GameManager = gameManager.GetComponent<GameManager>();
+        } catch (Exception e)
+        {
+            GameManager = SetupDummyGame();
+        }
         //
         CameraScript.ChangeCamera(CameraView.Center);
         CurrentTurnState = TurnState.Start;
         GameObject Turnbutton = GameObject.Find("End Turn Button Text");
         Turnbutton.GetComponent<Text>().text = "Start game";
 	}
-	
+
+    private GameManager SetupDummyGame()
+    {
+        // Method that is suppose to run if Game is not started from Welcome Scene
+        PlayerStats p1 = new PlayerStats();
+        PlayerStats p2 = new PlayerStats();
+        p1.userName = "Hans Peter";
+        p2.userName = "Grete Elisabeth";
+        GameManager gm = new GameManager();
+        gm.playerOne = p1;
+        gm.playerTwo = p2;
+        return gm;
+    }
 
     public void EndTurn()
     {
@@ -49,6 +67,8 @@ public class TurnManager : MonoBehaviour {
         CurrentTurnState = TurnState.PlayerOne;
         GameObject PlayerNameText = GameObject.Find("Info Text");
         PlayerNameText.GetComponent<Text>().text = ("Player: " + GameManager.playerOne.userName);
+        GameObject PlayerLifeText = GameObject.Find("Player Info");
+        PlayerLifeText.GetComponent<Text>().text = "Life Left: " + GameManager.playerOne.lifeLeft;
     }
 
     private void GiveTurnToPlayerTwo()
@@ -57,6 +77,8 @@ public class TurnManager : MonoBehaviour {
         CurrentTurnState = TurnState.PlayerTwo;
         GameObject PlayerNameText = GameObject.Find("Info Text");
         PlayerNameText.GetComponent<Text>().text = ("Player: " + GameManager.playerTwo.userName);
+        GameObject PlayerLifeText = GameObject.Find("Player Info");
+        PlayerLifeText.GetComponent<Text>().text = "Life Left: "+GameManager.playerTwo.lifeLeft;
     }
 
     private void EditTurnButton()
