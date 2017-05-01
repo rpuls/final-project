@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public CameraView cv;
     // Use this for initialization
     void Start()
     {
         //cv = CameraView.Center;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void ChangeCamera(CameraView cv)
     {
+        GameObject camera = GameObject.Find("Main Camera");
+
         if (cv == CameraView.Center)
         {
             //print("Center");
-            gameObject.transform.position.Set(0f, 49.1f, 254.6f);
-            gameObject.transform.rotation.Set(5.482f, 182.834f, 0.271f, 0);
+            camera.transform.position = new Vector3(0f, 49.1f, 254.6f);
+            camera.transform.eulerAngles = new Vector3(5.482f, 182.834f, 0.271f);
+
+            //camera.transform.position.Set(0f, 49.1f, 254.6f);
+            //camera.transform.rotation.Set(5.482f, 182.834f, 0.271f, 0);
         }
         else if (cv == CameraView.P1)
         {
