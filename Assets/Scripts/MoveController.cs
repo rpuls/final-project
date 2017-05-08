@@ -1,22 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveController {
 
+    MoveContainer Container;
+
 	public void DecideMove(string name, TurnManager gamestate)
     {
+        Container = GameObject.Find("MovesContainer").GetComponent<MoveContainer>();
+
         switch(name)
         {
             case "swordCard1":
-                Debug.Log("GREEEAT! 1");
+                LightningAttack();
                 break;
             case "swordCard2":
-                Debug.Log("GREEEAT! 2");
+                LightningAttack();
                 break;
             case "swordCard3":
-                Debug.Log("GREEEAT! 3");
+                LightningAttack();
                 break;
         }
+    }
+
+    private void LightningAttack()
+    {
+        Container.ThunderTimer.SetActive(true);
+        Container.LightningBoltAnimation.SetActive(true);
+
     }
 }
