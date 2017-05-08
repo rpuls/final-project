@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ThunderTimerScript : MonoBehaviour {
-
-	public Slider m_Slider;							// The slider to represent where the cloud is
+    public delegate void HitOrMiss(bool hit);
+    public static event HitOrMiss ShotFeedback;
+    public Slider m_Slider;							// The slider to represent where the cloud is
 	public Image m_FillImage;						// The image component of the slider.
 	public AudioSource m_ThunderStrikeSound;		// Sound source
 	public GameObject m_thunderAnimation;			// animation prefab source
@@ -13,7 +14,7 @@ public class ThunderTimerScript : MonoBehaviour {
 	private bool move = true;						// Used to toggle movement
 	private bool isMovingFoward = true;				// Used to change direction forth/back
 	private float position = 0f;					// The starting position in % of where the thundercloud will spawn
-	public float thunderDifficulty = 0.9f;			// low = easy, max difficulty = 0.99f
+	public float thunderDifficulty = 0.0005f;			// low = easy, max difficulty = 0.99f
 	private float tempTime;							// Used for delay
 	// Use this for initialization
 	void Start (){
@@ -28,13 +29,19 @@ public class ThunderTimerScript : MonoBehaviour {
 	}
 
 	private void Shoot(){
+        if(ShotFeedback == null)
+        {
+            return;
+        }
 		if (Input.GetKeyDown ("space")) {
 			move = false;
 			if (position > thunderDifficulty) {
 				m_ThunderStrikeSound.Play ();
 				StartCoroutine (StrikeAnimator (m_thunderAnimation));
+                ShotFeedback(true);
 			} else {
 				m_missText.SetActive (true);
+                ShotFeedback(false);
 			}
 		}
 	}

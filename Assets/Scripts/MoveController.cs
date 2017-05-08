@@ -7,9 +7,14 @@ public class MoveController {
 
     MoveContainer Container;
 
+    public MoveController()
+    {
+      Container = GameObject.Find("MovesContainer").GetComponent<MoveContainer>();
+      ThunderTimerScript.ShotFeedback += ShotFeedback;
+    }
+
 	public void DecideMove(string name, TurnManager gamestate)
     {
-        Container = GameObject.Find("MovesContainer").GetComponent<MoveContainer>();
 
         switch(name)
         {
@@ -28,7 +33,12 @@ public class MoveController {
     private void LightningAttack()
     {
         Container.ThunderTimer.SetActive(true);
-        Container.LightningBoltAnimation.SetActive(true);
+    }
 
+    private void ShotFeedback(bool hit)
+    {
+        Debug.Log("Hit or Miss: " + hit);
+        if(hit) Container.LightningBoltAnimation.SetActive(true);
+        Container.ThunderTimer.SetActive(false);
     }
 }
