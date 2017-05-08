@@ -6,8 +6,8 @@ public class AttackScript : MonoBehaviour {
     Attack attack;
     // Use this for initialization
     void Start () {
-        attack = gameObject.AddComponent<Attack>() as Attack;
-
+        //attack = gameObject.AddComponent<Attack>() as Attack;
+        attack = gameObject.AddComponent<CannonScript>() as CannonScript;
 
 
     }

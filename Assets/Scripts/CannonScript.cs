@@ -13,6 +13,7 @@ public class CannonScript : Attack {
     void Start () {
         cannonAudio = GameObject.FindGameObjectWithTag("Cannon").GetComponent<AudioSource>();
         cannon = GameObject.FindGameObjectWithTag("Cannon");
+        cannonBall = GameObject.Find("CannonBall");
     }
 	
 	// Update is called once per frame
@@ -21,7 +22,7 @@ public class CannonScript : Attack {
 	}
 
 
-    void moveCannon()
+    public void moveCannon()
     {
         
 
@@ -31,12 +32,14 @@ public class CannonScript : Attack {
         if (Input.GetKey("f")) cannonDY--;
         else if (Input.GetKey("h")) cannonDY++;
         else cannonDY = 0;
-        transform.Rotate(cannonDX, cannonDY, 0);
+        cannon.transform.Rotate(cannonDX, cannonDY, 0);
     }
 
-    void AttackMove()
+    public override void AttackMove()
     {
-        transform.parent.parent.GetComponent<Rigidbody>().isKinematic = true;
+        GameObject g = GameObject.Find("castle");
+        g.GetComponent<Rigidbody>().isKinematic = true;
+        //transform.parent.parent.GetComponent<Rigidbody>().isKinematic = true;
         int multiplier = 3000;
         //Cannonshot
         print("Fire!");

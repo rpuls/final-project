@@ -13,7 +13,7 @@ public class Attack : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void AttackMove()
+    public virtual void AttackMove()
     {
         print("No move specified");
     }

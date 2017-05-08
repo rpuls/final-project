@@ -39,6 +39,9 @@ public class CardScript : MonoBehaviour {
 		GameObject newĆard = attackCards [Random.Range( 0, attackCards.Count )];
 		StartCoroutine (TurnCard(newĆard));
 		newĆard.transform.Rotate (0, 90, 0);
+        if (newĆard.gameObject.name.Equals("swordCard1")){
+
+        }
 	}
 
 	public void PickCard(){
