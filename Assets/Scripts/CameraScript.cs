@@ -10,7 +10,7 @@ public class CameraScript : MonoBehaviour
         //cv = CameraView.Center;
     }
 
-   public static void  ChangeCamera(CameraView cv)
+    public static void ChangeCamera(CameraView cv)
     {
         GameObject camera = GameObject.Find("Main Camera");
 

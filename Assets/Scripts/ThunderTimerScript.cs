@@ -7,9 +7,9 @@ public class ThunderTimerScript : MonoBehaviour {
 
 	public Slider m_Slider;							// The slider to represent where the cloud is
 	public Image m_FillImage;						// The image component of the slider.
-	public GameObject m_ThunderStroke;				// A "thunder" prefab that will be instantiated when space i tabbed, and spawns where the cloud is
 	public AudioSource m_ThunderStrikeSound;		// Sound source
 	public GameObject m_thunderAnimation;			// animation prefab source
+	public GameObject m_missText;					// UI canvas text object
 	private bool move = true;						// Used to toggle movement
 	private bool isMovingFoward = true;				// Used to change direction forth/back
 	private float position = 0f;					// The starting position in % of where the thundercloud will spawn
@@ -32,15 +32,20 @@ public class ThunderTimerScript : MonoBehaviour {
 			move = false;
 			if (position > thunderDifficulty) {
 				m_ThunderStrikeSound.Play ();
-				m_thunderAnimation.SetActive (true);
-				StartCoroutine(StrikeAnimator (m_thunderAnimation));
+				StartCoroutine (StrikeAnimator (m_thunderAnimation));
+			} else {
+				m_missText.SetActive (true);
 			}
 		}
 	}
 
 	private IEnumerator StrikeAnimator(GameObject thunder_prefab){
 		thunder_prefab.SetActive (true);
-		yield return new WaitForSeconds (5);
+		yield return new WaitForSeconds (0.3f);
+		thunder_prefab.SetActive (false);
+		yield return new WaitForSeconds (0.2f);
+		thunder_prefab.SetActive (true);
+		yield return new WaitForSeconds (0.3f);
 		thunder_prefab.SetActive (false);
 	}
 
