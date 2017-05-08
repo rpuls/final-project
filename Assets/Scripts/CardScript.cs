@@ -6,6 +6,7 @@ public class CardScript : MonoBehaviour {
 
 	public List<GameObject> attackCards;
 	public static float animationSpeed = 2f;
+    private TurnManager Turnmanager;
 
 
 	//hashtables for itween
@@ -24,7 +25,7 @@ public class CardScript : MonoBehaviour {
 
 
 	void Start () {
-
+        Turnmanager = GameObject.Find("TurnManager").GetComponent<TurnManager>();
 	}
 
 	void Update () {
@@ -34,6 +35,8 @@ public class CardScript : MonoBehaviour {
 	//public methods to call from trigger.
 	public void FlipCard(){
 		GameObject newĆard = attackCards [Random.Range( 0, attackCards.Count )];
+        string thing = newĆard.gameObject.name;
+        Turnmanager.ReciveMove(thing);
 		StartCoroutine (TurnCard(newĆard));
 		newĆard.transform.Rotate (0, 90, 0);
 	}

@@ -8,9 +8,11 @@ public class TurnManager : MonoBehaviour {
 
     public TurnState CurrentTurnState;
     public GameManager GameManager;
+    private MoveController MoveController;
 	
 	void Start () {
         // This gets the Game Manager from the GameManager Object!
+        MoveController = new MoveController();
         GameObject gameManager = GameObject.Find("Game Manager");
         try
         {
@@ -38,6 +40,7 @@ public class TurnManager : MonoBehaviour {
         gm.playerTwo = p2;
         return gm;
     }
+
 
     public void EndTurn()
     {
@@ -85,6 +88,11 @@ public class TurnManager : MonoBehaviour {
     {
         GameObject Turnbutton = GameObject.Find("End Turn Button Text");
         Turnbutton.GetComponent<Text>().text = "End Turn";
+    }
+
+    public void ReciveMove(String move)
+    {
+        MoveController.DecideMove(move, this);
     }
 
     public enum TurnState {PlayerOne, PlayerTwo, Start};
