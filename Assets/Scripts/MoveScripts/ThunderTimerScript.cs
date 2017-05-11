@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThunderTimerScript : MonoBehaviour {
+public class ThunderTimerScript : MonoBehaviour, IMove {
     public delegate void HitOrMiss(bool hit);
     public static event HitOrMiss ShotFeedback;
     public Slider m_Slider;							// The slider to represent where the cloud is
@@ -29,19 +30,14 @@ public class ThunderTimerScript : MonoBehaviour {
 	}
 
 	private void Shoot(){
-        if(ShotFeedback == null)
-        {
-            return;
-        }
+       
 		if (Input.GetKeyDown ("space")) {
 			move = false;
 			if (position > thunderDifficulty) {
 				m_ThunderStrikeSound.Play ();
 				StartCoroutine (StrikeAnimator (m_thunderAnimation));
-                ShotFeedback(true);
 			} else {
 				m_missText.SetActive (true);
-                ShotFeedback(false);
 			}
 		}
 	}
@@ -76,4 +72,9 @@ public class ThunderTimerScript : MonoBehaviour {
 			}
 		}
 	}
+
+    public void DoMove()
+    {
+        this.gameObject.SetActive(true);
+    }
 }

@@ -8,11 +8,11 @@ public class TurnManager : MonoBehaviour {
 
     public TurnState CurrentTurnState;
     public GameManager GameManager;
-    private MoveController MoveController;
+    public GameObject CanvasPlayerOne;
+    public GameObject CanvasPlayerTwo;
 	
 	void Start () {
         // This gets the Game Manager from the GameManager Object!
-        MoveController = new MoveController();
         GameObject gameManager = GameObject.Find("Game Manager");
         try
         {
@@ -68,20 +68,16 @@ public class TurnManager : MonoBehaviour {
     {
         CameraScript.ChangeCamera(CameraView.P1);
         CurrentTurnState = TurnState.PlayerOne;
-        GameObject PlayerNameText = GameObject.Find("Info Text");
-        PlayerNameText.GetComponent<Text>().text = ("Player: " + GameManager.playerOne.userName);
-        GameObject PlayerLifeText = GameObject.Find("Player Info");
-        PlayerLifeText.GetComponent<Text>().text = "Life Left: " + GameManager.playerOne.lifeLeft;
+        CanvasPlayerOne.SetActive(true);
+        CanvasPlayerTwo.SetActive(false);
     }
 
     private void GiveTurnToPlayerTwo()
     {
         CameraScript.ChangeCamera(CameraView.P2);
         CurrentTurnState = TurnState.PlayerTwo;
-        GameObject PlayerNameText = GameObject.Find("Info Text");
-        PlayerNameText.GetComponent<Text>().text = ("Player: " + GameManager.playerTwo.userName);
-        GameObject PlayerLifeText = GameObject.Find("Player Info");
-        PlayerLifeText.GetComponent<Text>().text = "Life Left: "+GameManager.playerTwo.lifeLeft;
+        CanvasPlayerOne.SetActive(false);
+        CanvasPlayerTwo.SetActive(true);
     }
 
     private void EditTurnButton()
@@ -90,10 +86,6 @@ public class TurnManager : MonoBehaviour {
         Turnbutton.GetComponent<Text>().text = "End Turn";
     }
 
-    public void ReciveMove(String move)
-    {
-        MoveController.DecideMove(move, this);
-    }
 
     public enum TurnState {PlayerOne, PlayerTwo, Start};
 }

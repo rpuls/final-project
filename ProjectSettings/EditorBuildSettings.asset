@@ -9,7 +9,3 @@ EditorBuildSettings:
     path: Assets/welcomeScene.unity
   - enabled: 1
     path: Assets/main.unity
-  - enabled: 0
-    path: Assets/main - Kopi.unity
-  - enabled: 1
-    path: Assets/cycleScene.unity

@@ -38,8 +38,10 @@ public class CardScript : MonoBehaviour {
 	//public methods to call from trigger.
 	public void FlipCard(){
 		GameObject newĆard = attackCards [Random.Range( 0, attackCards.Count )];
-        string thing = newĆard.gameObject.name;
-        Turnmanager.ReciveMove(thing);
+
+        // string thing = newĆard.gameObject.name;
+        //Turnmanager.ReciveMove(thing);
+        newĆard.GetComponent<DoMove>().Activate();
 		StartCoroutine (TurnCard(newĆard));
 		newĆard.transform.Rotate (0, 90, 0);
         if (newĆard.gameObject.name.Equals("swordCard1")){
@@ -47,7 +49,8 @@ public class CardScript : MonoBehaviour {
         }
 	}
 
-	public void PickCard(){
+ 
+    public void PickCard(){
 		iTween.MoveTo (gameObject, moveToConor);
 		iTween.ScaleTo (gameObject, scaleX05);
 		Debug.Log ("xxx");
