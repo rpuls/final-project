@@ -10,5 +10,6 @@ public class DoMove : MonoBehaviour
     {
         if (CardGameObj == null) return;
         CardGameObj.GetComponent<IMove>().DoMove();
+        gameObject.SetActive(false);
     }
 }

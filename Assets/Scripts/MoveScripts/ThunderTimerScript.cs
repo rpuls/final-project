@@ -17,6 +17,7 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 	private float position = 0f;					// The starting position in % of where the thundercloud will spawn
 	public float thunderDifficulty = 0.0005f;			// low = easy, max difficulty = 0.99f
 	private float tempTime;							// Used for delay
+    public TurnManager turnManager;
 	// Use this for initialization
 	void Start (){
 		m_ThunderStrikeSound = GameObject.FindGameObjectWithTag("Thunder").GetComponent<AudioSource>();
@@ -38,7 +39,8 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 				StartCoroutine (StrikeAnimator (m_thunderAnimation));
 			} else {
 				m_missText.SetActive (true);
-			}
+                CleanUp();
+            }
 		}
 	}
 
@@ -50,7 +52,8 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 		thunder_prefab.SetActive (true);
 		yield return new WaitForSeconds (0.3f);
 		thunder_prefab.SetActive (false);
-	}
+        CleanUp();
+    }
 
 	public void MoveCloud (){
 		if (move) {
@@ -76,5 +79,11 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
     public void DoMove()
     {
         this.gameObject.SetActive(true);
+    }
+
+    public void CleanUp()
+    {
+        move = true;
+        turnManager.MoveIsDone(this.gameObject);
     }
 }
