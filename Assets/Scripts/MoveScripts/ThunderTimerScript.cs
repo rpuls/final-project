@@ -15,7 +15,8 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 	private bool move = true;						// Used to toggle movement
 	private bool isMovingFoward = true;				// Used to change direction forth/back
 	private float position = 0f;					// The starting position in % of where the thundercloud will spawn
-	public float thunderDifficulty = 0.0005f;			// low = easy, max difficulty = 0.99f
+	public float thunderHitStart = 0.45f;			// 0.5f is middle all below is considered "hitable"
+	public float thunderHitEnd = 0.55f;				// 0.5f is middle all above is considered "hitable"
 	private float tempTime;							// Used for delay
     public TurnManager turnManager;
 	// Use this for initialization
@@ -34,7 +35,7 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
        
 		if (Input.GetKeyDown ("space")) {
 			move = false;
-			if (position > thunderDifficulty) {
+			if (position > thunderHitStart && position < thunderHitEnd) {
 				m_ThunderStrikeSound.Play ();
 				StartCoroutine (StrikeAnimator (m_thunderAnimation));
 			} else {
@@ -84,6 +85,7 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
     public void CleanUp()
     {
         move = true;
+		m_missText.SetActive (false);
         turnManager.MoveIsDone(this.gameObject);
     }
 }

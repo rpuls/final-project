@@ -28,8 +28,8 @@ public class TurnManager : MonoBehaviour {
         //
         CameraScript.ChangeCamera(CameraView.Center);
         CurrentTurnState = TurnState.Start;
-        GameObject Turnbutton = GameObject.Find("End Turn Button Text");
-        Turnbutton.GetComponent<Text>().text = "Start game";
+        //GameObject Turnbutton = GameObject.Find("End Turn Button Text");
+        //Turnbutton.GetComponent<Text>().text = "Start game";
         EndTurn();
 	}
 
@@ -51,7 +51,7 @@ public class TurnManager : MonoBehaviour {
     {
         if(CurrentTurnState == TurnState.Start)
         {
-            EditTurnButton();
+            //EditTurnButton();
             GiveTurnToPlayerOne();
             StartCanvas.SetActive(false);
         }
@@ -87,12 +87,12 @@ public class TurnManager : MonoBehaviour {
     }
 
     
-
+	/*
     private void EditTurnButton()
     {
         GameObject Turnbutton = GameObject.Find("End Turn Button Text");
         Turnbutton.GetComponent<Text>().text = "End Turn";
-    }
+    }*/
 
 
 
