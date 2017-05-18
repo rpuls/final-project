@@ -22,7 +22,7 @@ public class CardScript : MonoBehaviour {
 	Hashtable flip1 = iTween.Hash("y", 90, "time", animationSpeed,"easetype", iTween.EaseType.easeInQuad);
     Hashtable flip2 = iTween.Hash("y", 180, "time", animationSpeed, "easetype", iTween.EaseType.easeOutQuart);
 	Hashtable basePos = iTween.Hash("y", 0, "time", animationSpeed, "easetype", iTween.EaseType.easeOutQuart);
-	Hashtable moveToCenter = iTween.Hash("x", middleX, "y", middleY, "time", animationSpeed);
+	Hashtable moveToCenter = iTween.Hash("x", (Screen.width / 2), "y", (Screen.height / 2), "time", animationSpeed);
 	Hashtable scaleX2 = iTween.Hash("x", 2, "y", 2, "time", animationSpeed);
     Hashtable normalSize = iTween.Hash("x", 1, "y", 1, "time", animationSpeed);
     //pick
