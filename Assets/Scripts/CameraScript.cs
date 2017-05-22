@@ -36,13 +36,13 @@ public class CameraScript : MonoBehaviour {
         }
         else if (cv == CameraView.P1) {
             //print("P1");
-			camera.transform.position = CameraP1AimPos;
-            camera.transform.eulerAngles = CameraP1AimAng;
+			camera.transform.position = CameraP1Pos;
+            camera.transform.eulerAngles = CameraP1Ang;
         }
         else if (cv == CameraView.P2) {
             //print("P2");
-			camera.transform.position = CameraP2AimPos;
-			camera.transform.eulerAngles = CameraP2AimAng;
+			camera.transform.position = CameraP2Pos;
+			camera.transform.eulerAngles = CameraP2Ang;
         }
 
     }
