@@ -36,11 +36,11 @@ public class TurnManager : MonoBehaviour {
     private GameManager SetupDummyGame()
     {
         // Method that is suppose to run if Game is not started from Welcome Scene
-        PlayerStats p1 = new PlayerStats();
-        PlayerStats p2 = new PlayerStats();
+        PlayerStats p1 = gameObject.AddComponent<PlayerStats>() as PlayerStats;
+        PlayerStats p2 = gameObject.AddComponent<PlayerStats>() as PlayerStats;
         p1.userName = "Hans Peter";
         p2.userName = "Grete Elisabeth";
-        GameManager gm = new GameManager();
+        GameManager gm = gameObject.AddComponent<GameManager>() as GameManager;
         gm.playerOne = p1;
         gm.playerTwo = p2;
         return gm;
