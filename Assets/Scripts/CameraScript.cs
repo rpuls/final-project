@@ -47,4 +47,4 @@ public class CameraScript : MonoBehaviour {
 
     }
 }
-public enum CameraView { Center, P1, P2 };
+public enum CameraView { Center, P1, P2 }; 

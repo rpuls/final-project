@@ -14,6 +14,8 @@ public class TurnManager : MonoBehaviour {
     public GameObject MoveCanvas;
     public GameObject InfoCanvas;
     public bool HasPlayerChooseCard  { get; set; }
+    public delegate void TurnPassed();
+    public static event TurnPassed OnTurn;
 	
 	void Start () {
         // This gets the Game Manager from the GameManager Object!
@@ -50,6 +52,7 @@ public class TurnManager : MonoBehaviour {
 
     public void EndTurn()
     {
+
         if(CurrentTurnState == TurnState.Start)
         {
             Text[] infoTexts = InfoCanvas.GetComponentsInChildren<Text>();
@@ -70,6 +73,11 @@ public class TurnManager : MonoBehaviour {
         {
             GiveTurnToPlayerOne();
             UpdateInfoCanvas();
+        }
+
+        if (OnTurn != null)
+        {
+            OnTurn(); // TELLS OTHER GAMEOBJ that a turn has passed!
         }
 
     }
