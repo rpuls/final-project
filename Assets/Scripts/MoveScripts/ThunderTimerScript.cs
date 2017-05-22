@@ -21,6 +21,7 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
     public TurnManager turnManager;
 	// Use this for initialization
 	void Start (){
+		//Slider.transform.position
 		m_ThunderStrikeSound = GameObject.FindGameObjectWithTag("Thunder").GetComponent<AudioSource>();
 	}
 	
