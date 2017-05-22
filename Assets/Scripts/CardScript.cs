@@ -67,8 +67,6 @@ public class CardScript : MonoBehaviour {
     public void PickCard(){
 		iTween.MoveTo (gameObject, moveToConor);
 		iTween.ScaleTo (gameObject, scaleX05);
-		Debug.Log ("xxx");
-		print ("yyy");
 	}
 
 	public void ShakeCard(){
