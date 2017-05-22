@@ -12,6 +12,7 @@ public class TurnManager : MonoBehaviour {
     public GameObject CanvasPlayerTwo;
     public GameObject StartCanvas;
     public GameObject MoveCanvas;
+    public GameObject InfoCanvas;
     public bool HasPlayerChooseCard  { get; set; }
 	
 	void Start () {
@@ -28,8 +29,6 @@ public class TurnManager : MonoBehaviour {
         //
         CameraScript.ChangeCamera(CameraView.Center);
         CurrentTurnState = TurnState.Start;
-        //GameObject Turnbutton = GameObject.Find("End Turn Button Text");
-        //Turnbutton.GetComponent<Text>().text = "Start game";
         EndTurn();
 	}
 
@@ -40,6 +39,8 @@ public class TurnManager : MonoBehaviour {
         PlayerStats p2 = new PlayerStats();
         p1.userName = "Hans Peter";
         p2.userName = "Grete Elisabeth";
+        p1.lifeLeft = 100;
+        p2.lifeLeft = 100;
         GameManager gm = new GameManager();
         gm.playerOne = p1;
         gm.playerTwo = p2;
@@ -51,24 +52,42 @@ public class TurnManager : MonoBehaviour {
     {
         if(CurrentTurnState == TurnState.Start)
         {
-            //EditTurnButton();
+            Text[] infoTexts = InfoCanvas.GetComponentsInChildren<Text>();
+            infoTexts[0].text = "Vikings: " + GameManager.playerOne.userName;
+            infoTexts[3].text = "Samuari: " + GameManager.playerTwo.userName;
             GiveTurnToPlayerOne();
             StartCanvas.SetActive(false);
+            UpdateInfoCanvas();
         }
 
         else if(CurrentTurnState == TurnState.PlayerOne)
         {
             GiveTurnToPlayerTwo();
+            UpdateInfoCanvas();
         }
 
         else if(CurrentTurnState == TurnState.PlayerTwo)
         {
             GiveTurnToPlayerOne();
+            UpdateInfoCanvas();
         }
 
     }
 
-    
+    private void UpdateInfoCanvas()
+    {
+        Text[] infoTexts = InfoCanvas.GetComponentsInChildren<Text>();
+        infoTexts[1].text =  "Life Left: " + GameManager.playerOne.lifeLeft;
+        infoTexts[2].text =  "Life Left: " + GameManager.playerTwo.lifeLeft;
+        if (CurrentTurnState == TurnState.PlayerOne)
+        {
+            infoTexts[4].text = "Current Player Turn: Vikings";
+        }
+        else
+        {
+            infoTexts[4].text = "Current Player Turn: Samurai";
+        }
+    }
 
     private void GiveTurnToPlayerOne()
     {
