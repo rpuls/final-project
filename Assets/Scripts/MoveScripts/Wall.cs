@@ -7,6 +7,7 @@ public class Wall : MonoBehaviour, IMove {
 
     public TurnManager turnmanager;
     private int turnCount;
+    private int turnsToStayAlive = 0;
     public GameObject buildText;
 
     // Use this for initialization
@@ -17,7 +18,7 @@ public class Wall : MonoBehaviour, IMove {
     {
         turnCount++;
         Debug.Log("Turns Alive: " + turnCount);
-        if (turnCount >= 3)
+        if (turnCount >= turnsToStayAlive)
         {
             turnCount = 0;
             TurnManager.OnTurn -= TurnPassed;
@@ -33,6 +34,7 @@ public class Wall : MonoBehaviour, IMove {
     public void DoMove()
     {
         this.gameObject.SetActive(true);
+        turnsToStayAlive += 3;
         TurnManager.OnTurn += TurnPassed;
         DisplayText();
     }
