@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.8308824, g: 0.8308824, b: 0.8308824, a: 1}
   m_FogMode: 3
@@ -25,6 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -37,11 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4467703, g: 0.49173778, b: 0.5486029, a: 1}
+  m_IndirectSpecularColor: {r: 0.4467702, g: 0.49173772, b: 0.5486022, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 9
   m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
@@ -53,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 4
+    serializedVersion: 8
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -66,13 +67,27 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
+    m_MixedBakeMode: 1
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFiltering: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_RuntimeCPUUsage: 25
+  m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -89,6 +104,8 @@ NavMeshSettings:
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &24198647
@@ -143,7 +160,7 @@ MonoBehaviour:
   - {fileID: 804610401}
   - {fileID: 94235636}
   - {fileID: 115335057}
-  MoveCanvas: {fileID: 1579083551}
+  MoveCanvas: {fileID: 0}
 --- !u!114 &24198650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,125 +317,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 40833379}
-<<<<<<< HEAD
---- !u!1001 &42445631
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 117.90106
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.8276834
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 21.131588
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494521377585826, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028597869452130, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 32ee656c86cd709448acc2e4d019310c, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &42445632 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1028597869452130, guid: 32ee656c86cd709448acc2e4d019310c,
-    type: 2}
-  m_PrefabInternal: {fileID: 42445631}
---- !u!114 &42445633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 42445632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a6567281d05f141acc2ab3b1c1e3fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnmanager: {fileID: 1264832140}
-  buildText: {fileID: 1053264541}
---- !u!1 &48958203
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 48958204}
-  - component: {fileID: 48958207}
-  - component: {fileID: 48958206}
-  - component: {fileID: 48958205}
-  m_Layer: 5
-  m_Name: DummyObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &48958204
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 48958203}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1579083555}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 32}
-  m_SizeDelta: {x: 250, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &48958205
-=======
 --- !u!114 &40833383
->>>>>>> 49fdf012abdc693d14a4a85fc0ed232ce0a00958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 48958203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccfca1300aee84e42b6681704345dca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnmanager: {fileID: 1264832140}
---- !u!114 &48958206
-=======
   m_GameObject: {fileID: 40833379}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -429,47 +332,10 @@ MonoBehaviour:
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!114 &40833384
->>>>>>> 49fdf012abdc693d14a4a85fc0ed232ce0a00958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 48958203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.35172415, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Not Implemented
---- !u!222 &48958207
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 48958203}
-=======
   m_GameObject: {fileID: 40833379}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -479,7 +345,6 @@ CanvasRenderer:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
->>>>>>> 49fdf012abdc693d14a4a85fc0ed232ce0a00958
 --- !u!1 &53822696
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,8 +384,8 @@ GameObject:
   - component: {fileID: 94235641}
   - component: {fileID: 94235640}
   - component: {fileID: 94235639}
-  - component: {fileID: 94235637}
   - component: {fileID: 94235638}
+  - component: {fileID: 94235637}
   m_Layer: 5
   m_Name: wu-shrooms
   m_TagString: Untagged
@@ -544,7 +409,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 94235638}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -566,10 +431,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 94235636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &94235639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,8 +497,8 @@ GameObject:
   - component: {fileID: 115335062}
   - component: {fileID: 115335061}
   - component: {fileID: 115335060}
-  - component: {fileID: 115335058}
   - component: {fileID: 115335059}
+  - component: {fileID: 115335058}
   m_Layer: 5
   m_Name: wu-trinity
   m_TagString: Untagged
@@ -656,7 +522,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 115335059}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -678,10 +544,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 115335057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &115335060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,8 +610,8 @@ GameObject:
   - component: {fileID: 142337757}
   - component: {fileID: 142337756}
   - component: {fileID: 142337755}
-  - component: {fileID: 142337753}
   - component: {fileID: 142337754}
+  - component: {fileID: 142337753}
   m_Layer: 5
   m_Name: sd-meditation
   m_TagString: Untagged
@@ -768,7 +635,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 142337754}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -790,10 +657,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 142337752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &142337755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,12 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCards:
-<<<<<<< HEAD
-  - {fileID: 1540841738}
-  - {fileID: 1119113577}
-=======
   - {fileID: 593422995}
->>>>>>> 49fdf012abdc693d14a4a85fc0ed232ce0a00958
   - {fileID: 593422995}
   MoveCanvas: {fileID: 1579083551}
 --- !u!114 &231342582
@@ -1332,6 +1195,8 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -1445,10 +1310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCards:
-  - {fileID: 295453346}
   - {fileID: 142337752}
+  - {fileID: 295453346}
   - {fileID: 2111885685}
-  MoveCanvas: {fileID: 1579083551}
+  MoveCanvas: {fileID: 0}
 --- !u!114 &244609957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,8 +1425,8 @@ GameObject:
   - component: {fileID: 295453351}
   - component: {fileID: 295453350}
   - component: {fileID: 295453349}
-  - component: {fileID: 295453347}
   - component: {fileID: 295453348}
+  - component: {fileID: 295453347}
   m_Layer: 5
   m_Name: sd-wall
   m_TagString: Untagged
@@ -1585,7 +1450,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 295453348}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -1607,10 +1472,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 295453346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 353834240}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &295453349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1704,70 +1570,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fea4a11af95f7d4d99642f1e6701bdd, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &353834239
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -84.45636
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.8277004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -62.039383
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.45752004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.5391432
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.5391432
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.45752004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642378380784650, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1744794812220038, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cf35b0597cfe1b94db89ee809fd9e1fc, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &353834240 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1744794812220038, guid: cf35b0597cfe1b94db89ee809fd9e1fc,
-    type: 2}
-  m_PrefabInternal: {fileID: 353834239}
---- !u!114 &353834241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 353834240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a6567281d05f141acc2ab3b1c1e3fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnmanager: {fileID: 1264832140}
-  buildText: {fileID: 1053264541}
 --- !u!1 &548426613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1661,7 @@ Canvas:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 587282542}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -1868,6 +1670,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2154,7 +1957,7 @@ MonoBehaviour:
   - {fileID: 2049912267}
   - {fileID: 758465427}
   - {fileID: 1590662074}
-  MoveCanvas: {fileID: 1579083551}
+  MoveCanvas: {fileID: 0}
 --- !u!114 &635405585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2351,10 +2154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCards:
-  - {fileID: 1605898183}
-  - {fileID: 898665871}
   - {fileID: 829033525}
-  MoveCanvas: {fileID: 1579083551}
+  - {fileID: 898665871}
+  - {fileID: 1605898183}
+  MoveCanvas: {fileID: 0}
 --- !u!114 &660828145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,7 +2475,7 @@ RectTransform:
   - {fileID: 2064896040}
   - {fileID: 756628173}
   m_Father: {fileID: 1579083555}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2867,8 +2670,8 @@ GameObject:
   - component: {fileID: 758465432}
   - component: {fileID: 758465431}
   - component: {fileID: 758465430}
-  - component: {fileID: 758465428}
   - component: {fileID: 758465429}
+  - component: {fileID: 758465428}
   m_Layer: 5
   m_Name: sa-katana
   m_TagString: Untagged
@@ -2892,7 +2695,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 758465429}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -2914,10 +2717,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 758465427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &758465430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2979,8 +2783,8 @@ GameObject:
   - component: {fileID: 804610406}
   - component: {fileID: 804610405}
   - component: {fileID: 804610404}
-  - component: {fileID: 804610402}
   - component: {fileID: 804610403}
+  - component: {fileID: 804610402}
   m_Layer: 5
   m_Name: wu-raven
   m_TagString: Untagged
@@ -3004,7 +2808,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 804610403}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -3026,10 +2830,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 804610401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &804610404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3091,8 +2896,8 @@ GameObject:
   - component: {fileID: 829033530}
   - component: {fileID: 829033529}
   - component: {fileID: 829033528}
-  - component: {fileID: 829033526}
   - component: {fileID: 829033527}
+  - component: {fileID: 829033526}
   m_Layer: 5
   m_Name: wd-helmet
   m_TagString: Untagged
@@ -3116,7 +2921,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 829033527}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -3138,10 +2943,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 829033525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &829033528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,8 +3063,8 @@ GameObject:
   - component: {fileID: 898665876}
   - component: {fileID: 898665875}
   - component: {fileID: 898665874}
-  - component: {fileID: 898665872}
   - component: {fileID: 898665873}
+  - component: {fileID: 898665872}
   m_Layer: 5
   m_Name: wd-shield
   m_TagString: Untagged
@@ -3282,7 +3088,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 898665873}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -3304,10 +3110,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 898665871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &898665874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3526,7 +3333,7 @@ Canvas:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968995992}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -3535,6 +3342,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -3600,7 +3408,7 @@ Light:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 984501657}
   m_Enabled: 1
-  serializedVersion: 7
+  serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.8875538, b: 0.5808823, a: 1}
   m_Intensity: 2.21
@@ -3625,6 +3433,8 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0.57
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &984501659
@@ -3640,80 +3450,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 16.3, y: 160.8, z: 0}
---- !u!1 &1053264541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1053264544}
-  - component: {fileID: 1053264543}
-  - component: {fileID: 1053264542}
-  m_Layer: 5
-  m_Name: BuildText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1053264542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1053264541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.9411765, g: 0.6425963, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Building an Wall!
---- !u!222 &1053264543
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1053264541}
---- !u!224 &1053264544
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1053264541}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -769}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1579083555}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 27}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1068461235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,7 +3512,7 @@ Canvas:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068461235}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -3785,6 +3521,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -3864,10 +3601,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1119113577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bbd8a8d584d6de47bbc68cb82836ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
 --- !u!114 &1119113580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3971,7 +3707,7 @@ MonoBehaviour:
   - {fileID: 1811824641}
   - {fileID: 1966290023}
   - {fileID: 1721939106}
-  MoveCanvas: {fileID: 1579083551}
+  MoveCanvas: {fileID: 0}
 --- !u!114 &1191465345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4372,7 +4108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1579083552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4417,7 +4153,7 @@ Canvas:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1579083551}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -4426,6 +4162,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4439,8 +4176,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 48958204}
-  - {fileID: 1053264544}
   - {fileID: 687868477}
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -4462,7 +4197,6 @@ GameObject:
   - component: {fileID: 1590662077}
   - component: {fileID: 1590662076}
   - component: {fileID: 1590662075}
-  - component: {fileID: 1590662080}
   m_Layer: 5
   m_Name: sa-throwStars
   m_TagString: Untagged
@@ -4564,18 +4298,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.0000076293945, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1590662080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1590662074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
 --- !u!1 &1605898183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4586,8 +4308,8 @@ GameObject:
   - component: {fileID: 1605898188}
   - component: {fileID: 1605898187}
   - component: {fileID: 1605898186}
-  - component: {fileID: 1605898184}
   - component: {fileID: 1605898185}
+  - component: {fileID: 1605898184}
   m_Layer: 5
   m_Name: wd-wall
   m_TagString: Untagged
@@ -4611,7 +4333,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1605898185}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -4633,10 +4355,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1605898183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 42445632}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &1605898186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4766,8 +4489,8 @@ GameObject:
   - component: {fileID: 1721939111}
   - component: {fileID: 1721939110}
   - component: {fileID: 1721939109}
-  - component: {fileID: 1721939107}
   - component: {fileID: 1721939108}
+  - component: {fileID: 1721939107}
   m_Layer: 5
   m_Name: su-treeOfLife
   m_TagString: Untagged
@@ -4791,7 +4514,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1721939108}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -4813,10 +4536,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721939106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &1721939109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4928,8 +4652,8 @@ GameObject:
   - component: {fileID: 1811824646}
   - component: {fileID: 1811824645}
   - component: {fileID: 1811824644}
-  - component: {fileID: 1811824642}
   - component: {fileID: 1811824643}
+  - component: {fileID: 1811824642}
   m_Layer: 5
   m_Name: su-flag
   m_TagString: Untagged
@@ -4953,7 +4677,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1811824643}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -4975,10 +4699,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1811824641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &1811824644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5196,8 +4921,8 @@ GameObject:
   - component: {fileID: 1966290028}
   - component: {fileID: 1966290027}
   - component: {fileID: 1966290026}
-  - component: {fileID: 1966290024}
   - component: {fileID: 1966290025}
+  - component: {fileID: 1966290024}
   m_Layer: 5
   m_Name: su-scroll
   m_TagString: Untagged
@@ -5221,7 +4946,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1966290025}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -5243,10 +4968,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1966290023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &1966290026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5308,8 +5034,8 @@ GameObject:
   - component: {fileID: 2049912272}
   - component: {fileID: 2049912271}
   - component: {fileID: 2049912270}
-  - component: {fileID: 2049912268}
   - component: {fileID: 2049912269}
+  - component: {fileID: 2049912268}
   m_Layer: 5
   m_Name: sa-dragonCanon
   m_TagString: Untagged
@@ -5333,7 +5059,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 2049912269}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -5355,10 +5081,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049912267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 48958203}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &2049912270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5506,7 +5233,7 @@ Canvas:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2103206377}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -5515,6 +5242,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5558,8 +5286,8 @@ GameObject:
   - component: {fileID: 2111885690}
   - component: {fileID: 2111885689}
   - component: {fileID: 2111885688}
-  - component: {fileID: 2111885686}
   - component: {fileID: 2111885687}
+  - component: {fileID: 2111885686}
   m_Layer: 5
   m_Name: sd-stealth
   m_TagString: Untagged
@@ -5583,7 +5311,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 2111885687}
           m_MethodName: PickCard
           m_Mode: 1
           m_Arguments:
@@ -5605,10 +5333,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2111885685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a038a2bd0ab2d4892b9c5940c25161, type: 3}
+  m_Script: {fileID: 11500000, guid: 7731246311a15a649862ddcf85b97dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardGameObj: {fileID: 2111885685}
+  attackCards: []
+  MoveCanvas: {fileID: 0}
 --- !u!114 &2111885688
 MonoBehaviour:
   m_ObjectHideFlags: 0
