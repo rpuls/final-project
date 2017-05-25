@@ -12,19 +12,13 @@ public class CardScript : MonoBehaviour {
     private TurnManager Turnmanager;
     private Vector2 OriginalPosition;
 
-	//private static Vector3 centerPos;
-	private static int middleX = Screen.width / 2;
-	private static int middleY = Screen.height / 2;
-
 	//hashtables for itween
-
 	//flip
 	Hashtable flip1 = iTween.Hash("y", 90, "time", animationSpeed,"easetype", iTween.EaseType.easeInQuad);
     Hashtable flip2 = iTween.Hash("y", 180, "time", animationSpeed, "easetype", iTween.EaseType.easeOutQuart);
 	Hashtable basePos = iTween.Hash("y", 0, "time", animationSpeed, "easetype", iTween.EaseType.easeOutQuart);
 	Hashtable moveToCenter = iTween.Hash("x", (Screen.width / 2), "y", (Screen.height / 2), "time", animationSpeed);
 	Hashtable scaleX2 = iTween.Hash("x", 2, "y", 2, "time", animationSpeed);
-    Hashtable normalSize = iTween.Hash("x", 1, "y", 1, "time", animationSpeed);
     //pick
     Hashtable scaleX05 = iTween.Hash("x", 0.5f, "y", 0.5f, "time", animationSpeed);
 	Hashtable moveToConor = iTween.Hash("x", 100, "y", 100, "time", animationSpeed);
@@ -55,10 +49,8 @@ public class CardScript : MonoBehaviour {
 
 
 
-    IEnumerator Thing(float Why)
-    {
+    IEnumerator Thing(float Why) {
         yield return new WaitForSeconds(2);
-        Debug.Log("Hello");
         gameObject.GetComponent<RectTransform>().anchoredPosition = OriginalPosition;
         yield return null;
     }
@@ -90,9 +82,7 @@ public class CardScript : MonoBehaviour {
         ResetJustActivedCard(otherCard);
     }
 
-    private void ResetJustActivedCard(GameObject otherCard)
-    {
-        Debug.Log("Go Back");
+    private void ResetJustActivedCard(GameObject otherCard) {
         otherCard.GetComponent<RectTransform>().rotation = gameObject.GetComponent<RectTransform>().rotation;
         otherCard.GetComponent<RectTransform>().position = gameObject.GetComponent<RectTransform>().position;
         otherCard.GetComponent<RectTransform>().localScale = new Vector2(1.0F, 1.0F);

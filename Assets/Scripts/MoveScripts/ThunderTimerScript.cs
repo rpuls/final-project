@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class ThunderTimerScript : MonoBehaviour, IMove {
     public delegate void HitOrMiss(bool hit);
-    public static event HitOrMiss ShotFeedback;
-    public Slider SliderBar;							// The slider to represent where the cloud is
+    public Slider SliderBar;						// The slider to represent where the cloud is
 	public Image m_FillImage;						// The image component of the slider.
 	public AudioSource m_ThunderStrikeSound;		// Sound source
 	public GameObject m_thunderAnimation;			// animation prefab source
@@ -19,21 +18,18 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 	public float thunderHitEnd = 0.55f;				// 0.5f is middle all above is considered "hitable"
 	private float tempTime;							// Used for delay
     public TurnManager turnManager;
-	// Use this for initialization
-	void Start (){
+
+	void Start() {
 		m_ThunderStrikeSound = GameObject.FindGameObjectWithTag("Thunder").GetComponent<AudioSource>();
 		SliderBar.transform.position = new Vector3 ((Screen.width / 2)+50, Screen.height-45 );
 	}
-	
-	// Update is called once per frame
 
-	void Update (){
+	void Update() {
 		MoveCloud ();
 		Shoot ();
 	}
 
-	private void Shoot(){
-       
+	private void Shoot() {
 		if (Input.GetKeyDown ("space")) {
 			move = false;
 			if (position > thunderHitStart && position < thunderHitEnd) {
@@ -58,7 +54,7 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
         CleanUp();
     }
 
-	public void MoveCloud (){
+	public void MoveCloud() {
 		if (move) {
 			tempTime += Time.deltaTime;
 			if (tempTime > 0.01) {
@@ -79,13 +75,11 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 		}
 	}
 
-    public void DoMove()
-    {
+    public void DoMove() {
         this.gameObject.SetActive(true);
     }
 
-    public void CleanUp()
-    {
+    public void CleanUp() {
         move = true;
 		m_missText.SetActive (false);
         turnManager.MoveIsDone(this.gameObject);

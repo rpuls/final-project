@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour {
 
 	//main
-	private Vector3 CameraCenterPos = new Vector3(0f, 49.1f, 254.6f);
-	private Vector3 CameraCenterAng = new Vector3(5.482f, 182.834f, 0.271f);
+	private static Vector3 CameraCenterPos = new Vector3(0f, 49.1f, 254.6f);
+	private static Vector3 CameraCenterAng = new Vector3(5.482f, 182.834f, 0.271f);
 
 	//p1
 	private static Vector3 CameraP1Pos = new Vector3(225f, 51f, 0f);
@@ -30,21 +30,26 @@ public class CameraScript : MonoBehaviour {
         GameObject camera = GameObject.Find("Main Camera");
 
         if (cv == CameraView.Center) {
-            //print("Center");
-            camera.transform.position = new Vector3(0f, 49.1f, 254.6f);
-            camera.transform.eulerAngles = new Vector3(5.482f, 182.834f, 0.271f);
+			camera.transform.position = CameraCenterPos;
+			camera.transform.eulerAngles = CameraCenterAng;
         }
         else if (cv == CameraView.P1) {
-            //print("P1");
 			camera.transform.position = CameraP1Pos;
             camera.transform.eulerAngles = CameraP1Ang;
         }
+		else if (cv == CameraView.P1A) {
+			camera.transform.position = CameraP1AimPos;
+			camera.transform.eulerAngles = CameraP1AimAng;
+		}
         else if (cv == CameraView.P2) {
-            //print("P2");
 			camera.transform.position = CameraP2Pos;
 			camera.transform.eulerAngles = CameraP2Ang;
         }
+		else if (cv == CameraView.P2A) {
+			camera.transform.position = CameraP2AimPos;
+			camera.transform.eulerAngles = CameraP2AimAng;
+		}
 
     }
 }
-public enum CameraView { Center, P1, P2 }; 
+public enum CameraView { Center, P1, P1A, P2, P2A }; 

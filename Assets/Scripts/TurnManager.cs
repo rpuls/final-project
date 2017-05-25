@@ -10,7 +10,6 @@ public class TurnManager : MonoBehaviour {
     public GameManager GameManager;
     public GameObject CanvasPlayerOne;
     public GameObject CanvasPlayerTwo;
-    public GameObject StartCanvas;
     public GameObject MoveCanvas;
     public GameObject InfoCanvas;
     public bool HasPlayerChooseCard  { get; set; }
@@ -24,8 +23,8 @@ public class TurnManager : MonoBehaviour {
         try
         {
             GameManager = gameManager.GetComponent<GameManager>();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
+			print (e);
             GameManager = SetupDummyGame();
         }
         //
@@ -59,7 +58,6 @@ public class TurnManager : MonoBehaviour {
             infoTexts[0].text = "Vikings: " + GameManager.playerOne.userName;
             infoTexts[3].text = "Samuari: " + GameManager.playerTwo.userName;
             GiveTurnToPlayerOne();
-            StartCanvas.SetActive(false);
             UpdateInfoCanvas();
         }
 
