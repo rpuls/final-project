@@ -21,9 +21,10 @@ public class CannonBallScript : MonoBehaviour {
         {
             Debug.DrawRay(contact.point, contact.normal, Color.white);
         }
+        print(collision.transform.gameObject.tag);
         //if (collision.relativeVelocity.magnitude > 2)
         // Should have a reference instead of find
-        if (GameObject.FindGameObjectWithTag("castle").Equals(collision.gameObject))
+        if (collision.transform.gameObject.tag.Equals("castle"))
         {
             print("Collided with: " + collision.gameObject.tag);
             cannonCollideAudio.Play();

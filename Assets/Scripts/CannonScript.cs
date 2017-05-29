@@ -7,6 +7,7 @@ public class CannonScript : MonoBehaviour, IMove
 {
     int cannonDX;
     int cannonDY;
+    private int force;
     AudioSource cannonAudio;
     
     public GameObject cannonBall;
@@ -23,9 +24,14 @@ public class CannonScript : MonoBehaviour, IMove
     void Update()
     {
         moveCannon();
-        if (Input.GetKeyDown("x"))
+        if (Input.GetKey("x"))
         {
-            AttackMove();
+            force += 100;
+        }
+        else if (Input.GetKeyUp("x"))
+        {
+            AttackMove(force);
+            force = 0;
         }
     }
 
@@ -36,39 +42,43 @@ public class CannonScript : MonoBehaviour, IMove
     {
 
 
-        if (Input.GetKey("t")) cannonDX++;
-        else if (Input.GetKey("g")) cannonDX--;
+        //if (Input.GetKey("t")) cannonDY++;
+        //else if (Input.GetKey("g")) cannonDY--;
+        //else cannonDY = 0;
+        if (Input.GetKey("f")) cannonDX--;
+        else if (Input.GetKey("h")) cannonDX++;
         else cannonDX = 0;
-        if (Input.GetKey("f")) cannonDY--;
-        else if (Input.GetKey("h")) cannonDY++;
-        else cannonDY = 0;
         gameObject.transform.Rotate(0, cannonDX, cannonDY);
     }
 
-    public void AttackMove()
+    public void AttackMove(int force)
     {
-        CameraScript.ChangeCamera(CameraView.Center);
+        //CameraScript.ChangeCamera(CameraView.Center);
         GameObject cannon = gameObject;
         //GameObject g = GameObject.Find("castle");
         //gameObject..GetComponent<Rigidbody>().isKinematic = true;
         //transform.parent.GetComponent<Rigidbody>().isKinematic = true;
-        int multiplier = 5000;
+        //int multiplier = 5000;
+
         //Cannonshot
         print("Fire!");
         cannonAudio.Play();
-        Vector3 firepos = new Vector3(cannon.transform.position.x - 0.2f, cannon.transform.position.y + 10, cannon.transform.position.z);
+        Vector3 firepos = new Vector3(cannon.transform.position.x - 0.2f, cannon.transform.position.y, cannon.transform.position.z);
+        print(firepos);
         // Make explosion to cover up spawn inacuracy?
         GameObject clone = GameObject.Instantiate(cannonBall, firepos, Quaternion.identity);
         Vector3 direction = (cannon.transform.rotation) * Vector3.forward;
+        
         if (cannon.name.Equals("ballista"))
         {
             
             //direction = new Vector3((direction.x), direction.y, direction.z);
-            direction = Quaternion.Euler(90, 0, 0) * direction;
+            direction = Quaternion.Euler(0, -90, 0) * direction;
+            //Quaternion.Euler
             print(direction);
         }
-        clone.GetComponent<Rigidbody>().AddForce(direction * multiplier);
-
+        clone.GetComponent<Rigidbody>().AddForce(direction * force);
+        clone.GetComponent<Rigidbody>().AddForce(Vector3.up * force/100);
 
         // Insert waiting -> re disable kinematic
 
