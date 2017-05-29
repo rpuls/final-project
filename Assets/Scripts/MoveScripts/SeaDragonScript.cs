@@ -42,7 +42,7 @@ public class SeaDragonScript : MonoBehaviour, IMove {
 			yield return new WaitForSeconds (1.1f);
 		} else {
 			iTween.MoveTo (SeaSnakePrefab, Attack);
-			turnmanager.GameManager.playerTwo.GiveDamage (33);
+			turnmanager.GameManager.playerTwo.GiveDamage (20);
 			yield return new WaitForSeconds (1.1f);
 		}
 		CleanUp();
