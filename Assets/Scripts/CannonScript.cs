@@ -1,30 +1,40 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonScript : Attack {
+public class CannonScript : MonoBehaviour, IMove
+{
     int cannonDX;
     int cannonDY;
     AudioSource cannonAudio;
-    GameObject cannon;
+    
     public GameObject cannonBall;
+    public TurnManager turnManager;
 
     // Use this for initialization
-    void Start () {
-        cannonAudio = GameObject.FindGameObjectWithTag("Cannon").GetComponent<AudioSource>();
-        cannon = GameObject.FindGameObjectWithTag("Cannon");
-        cannonBall = GameObject.Find("CannonBall");
+    void Start()
+    {
+        cannonAudio = GetComponent<AudioSource>();
+        //cannonBall = GameObject.Find("CannonBall");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         moveCannon();
-	}
+        if (Input.GetKeyDown("x"))
+        {
+            AttackMove();
+        }
+    }
+
+
 
 
     public void moveCannon()
     {
-        
+
 
         if (Input.GetKey("t")) cannonDX++;
         else if (Input.GetKey("g")) cannonDX--;
@@ -32,28 +42,57 @@ public class CannonScript : Attack {
         if (Input.GetKey("f")) cannonDY--;
         else if (Input.GetKey("h")) cannonDY++;
         else cannonDY = 0;
-        cannon.transform.Rotate(cannonDX, cannonDY, 0);
+        gameObject.transform.Rotate(0, cannonDX, cannonDY);
     }
 
-    public override void AttackMove()
+    public void AttackMove()
     {
-        GameObject g = GameObject.Find("castle");
-        g.GetComponent<Rigidbody>().isKinematic = true;
-        //transform.parent.parent.GetComponent<Rigidbody>().isKinematic = true;
-        int multiplier = 3000;
+        CameraScript.ChangeCamera(CameraView.Center);
+        GameObject cannon = gameObject;
+        //GameObject g = GameObject.Find("castle");
+        //gameObject..GetComponent<Rigidbody>().isKinematic = true;
+        //transform.parent.GetComponent<Rigidbody>().isKinematic = true;
+        int multiplier = 5000;
         //Cannonshot
         print("Fire!");
         cannonAudio.Play();
-        Vector3 firepos = new Vector3(cannon.transform.position.x - 0.2f, cannon.transform.position.y, cannon.transform.position.z);
+        Vector3 firepos = new Vector3(cannon.transform.position.x - 0.2f, cannon.transform.position.y + 10, cannon.transform.position.z);
         // Make explosion to cover up spawn inacuracy?
         GameObject clone = GameObject.Instantiate(cannonBall, firepos, Quaternion.identity);
-        float cannonX = cannon.transform.rotation.x + gameObject.transform.rotation.x;
-        float cannonY = cannon.transform.rotation.y + gameObject.transform.rotation.y;
-        print("CannonX " + cannonX * multiplier);
-        print("CannonY " + cannonY * multiplier);
-        clone.GetComponent<Rigidbody>().AddForce((cannon.transform.rotation) * Vector3.forward * multiplier);
+        Vector3 direction = (cannon.transform.rotation) * Vector3.forward;
+        if (cannon.name.Equals("ballista"))
+        {
+            
+            //direction = new Vector3((direction.x), direction.y, direction.z);
+            direction = Quaternion.Euler(90, 0, 0) * direction;
+            print(direction);
+        }
+        clone.GetComponent<Rigidbody>().AddForce(direction * multiplier);
 
 
         // Insert waiting -> re disable kinematic
+
+        //CleanUp();
+    }
+    private IEnumerator WaitForShot()
+    {
+        
+        yield return new WaitForSeconds(7f);
+        CleanUp();
+    }
+
+    public void DoMove()
+    {
+        print("Cannon do move");
+        gameObject.SetActive(true);
+    }
+
+    public void CleanUp()
+    {
+        //gameObject.SetActive(false);
+        Debug.Log("turnmanager is null " +turnManager == null);
+        Debug.Log("gameObject is " + gameObject.name);
+
+        turnManager.MoveIsDone(gameObject);
     }
 }
