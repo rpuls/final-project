@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class WelcomeButtons : MonoBehaviour {
 
 
-	public void GoToMain(){
+	public void GoToMain() {
 		Debug.Log("Stop");
 
 		SceneManager.LoadScene ("main");
 	}
 
 
-	public void YouSuck(){
+	public void YouSuck() {
 		Application.Quit();
 	}
 }

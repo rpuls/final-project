@@ -10,9 +10,11 @@ public class TurnManager : MonoBehaviour {
     public GameManager GameManager;
     public GameObject CanvasPlayerOne;
     public GameObject CanvasPlayerTwo;
-    public GameObject StartCanvas;
     public GameObject MoveCanvas;
+    public GameObject InfoCanvas;
     public bool HasPlayerChooseCard  { get; set; }
+    public delegate void TurnPassed();
+    public static event TurnPassed OnTurn;
 	
 	void Start () {
         // This gets the Game Manager from the GameManager Object!
@@ -21,15 +23,13 @@ public class TurnManager : MonoBehaviour {
         try
         {
             GameManager = gameManager.GetComponent<GameManager>();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
+			print (e);
             GameManager = SetupDummyGame();
         }
         //
         CameraScript.ChangeCamera(CameraView.Center);
         CurrentTurnState = TurnState.Start;
-        //GameObject Turnbutton = GameObject.Find("End Turn Button Text");
-        //Turnbutton.GetComponent<Text>().text = "Start game";
         EndTurn();
 	}
 
@@ -41,6 +41,8 @@ public class TurnManager : MonoBehaviour {
         p1.userName = "Hans Peter";
         p2.userName = "Grete Elisabeth";
         GameManager gm = gameObject.AddComponent<GameManager>() as GameManager;
+        p1.lifeLeft = 100;
+        p2.lifeLeft = 100;
         gm.playerOne = p1;
         gm.playerTwo = p2;
         return gm;
@@ -49,26 +51,49 @@ public class TurnManager : MonoBehaviour {
 
     public void EndTurn()
     {
+
         if(CurrentTurnState == TurnState.Start)
         {
-            //EditTurnButton();
+            Text[] infoTexts = InfoCanvas.GetComponentsInChildren<Text>();
+            infoTexts[0].text = "Vikings: " + GameManager.playerOne.userName;
+            infoTexts[3].text = "Samuari: " + GameManager.playerTwo.userName;
             GiveTurnToPlayerOne();
-            StartCanvas.SetActive(false);
+            UpdateInfoCanvas();
         }
 
         else if(CurrentTurnState == TurnState.PlayerOne)
         {
             GiveTurnToPlayerTwo();
+            UpdateInfoCanvas();
         }
 
         else if(CurrentTurnState == TurnState.PlayerTwo)
         {
             GiveTurnToPlayerOne();
+            UpdateInfoCanvas();
+        }
+
+        if (OnTurn != null)
+        {
+            OnTurn(); // TELLS OTHER GAMEOBJ that a turn has passed!
         }
 
     }
 
-    
+    private void UpdateInfoCanvas()
+    {
+        Text[] infoTexts = InfoCanvas.GetComponentsInChildren<Text>();
+        infoTexts[1].text =  "Life Left: " + GameManager.playerOne.lifeLeft;
+        infoTexts[2].text =  "Life Left: " + GameManager.playerTwo.lifeLeft;
+        if (CurrentTurnState == TurnState.PlayerOne)
+        {
+            infoTexts[4].text = "Current Player Turn: Vikings";
+        }
+        else
+        {
+            infoTexts[4].text = "Current Player Turn: Samurai";
+        }
+    }
 
     private void GiveTurnToPlayerOne()
     {
