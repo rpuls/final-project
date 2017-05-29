@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4467702, g: 0.49173772, b: 0.5486022, a: 1}
+  m_IndirectSpecularColor: {r: 0.4467703, g: 0.49173778, b: 0.5486029, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3870,7 +3870,7 @@ MonoBehaviour:
   SpinnerImg: {fileID: 92647465}
   Arrow: {fileID: 615419010}
   Turnmanager: {fileID: 1264832140}
-  SpinnerSpeed: 20
+  SpinnerSpeed: 720
   ThrowingStarPrefab: {fileID: 1000012068246728, guid: a28c08ffcfb7f2b41a3819eb4cc55a56,
     type: 2}
 --- !u!114 &1120466371
