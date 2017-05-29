@@ -10,18 +10,15 @@ public class ThrowStarScript : MonoBehaviour, IMove {
     public GameObject Arrow;
     public TurnManager Turnmanager;
     public int SpinnerSpeed;
+    private int SpinnerSpeedStartValue;
     private bool StopSpinner;
-    private bool SlowDownSpinner = false;
+    private bool SlowDownSpinner;
     public GameObject ThrowingStarPrefab;
     private Vector3 SpawnPos1 = new Vector3(92.1F, 57.8F, 54.7F);
     private Vector3 SpawnPos2 = new Vector3(92F, 65F, -85F);
 
     // Use this for initialization
     void Start () {
-        StopSpinner = false;
-        SpinnerImg.SetActive(true);
-        Arrow.SetActive(true);
-        StartCoroutine(StartSpinner());
 	}
 
     private IEnumerator StartSpinner()
@@ -147,11 +144,19 @@ public class ThrowStarScript : MonoBehaviour, IMove {
 
     public void CleanUp()
     {
+        SpinnerSpeed = SpinnerSpeedStartValue;
         Turnmanager.MoveIsDone(this.gameObject);
     }
 
     public void DoMove()
     {
         this.gameObject.SetActive(true);
+        StopSpinner = false;
+        SpinnerSpeedStartValue = SpinnerSpeed;
+        this.gameObject.GetComponent<Text>().text = "Press Space To Stop";
+        SlowDownSpinner = false;
+        SpinnerImg.SetActive(true);
+        Arrow.SetActive(true);
+        StartCoroutine(StartSpinner());
     }
 }
