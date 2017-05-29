@@ -18,4 +18,9 @@ public class PlayerStats : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void GiveDamage(int damage)
+    {
+        lifeLeft -= damage;
+    }
 }

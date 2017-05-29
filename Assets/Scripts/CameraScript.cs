@@ -8,8 +8,13 @@ public class CameraScript : MonoBehaviour {
 	private static Vector3 CameraCenterPos = new Vector3(0f, 49.1f, 254.6f);
 	private static Vector3 CameraCenterAng = new Vector3(5.482f, 182.834f, 0.271f);
 
-	//p1
-	private static Vector3 CameraP1Pos = new Vector3(225f, 51f, 0f);
+    //Thowring Stars
+    private static Vector3 CameraPosThowringStar = new Vector3(27f, 104f, -7f);
+    private static Vector3 CameraAngThowringStar = new Vector3(38.1f, 89f, 0f);
+    private static Hashtable HashThrow = iTween.Hash("x", -27f, "y", 104f, "z", -7f, "time", 3);//, "easetype", iTween.EaseType.easeInQuad);
+
+    //p1
+    private static Vector3 CameraP1Pos = new Vector3(225f, 51f, 0f);
 	private static Vector3 CameraP1Ang = new Vector3(17f, 270f, 0f);
 	private static Vector3 CameraP1AimPos = new Vector3(168.5f, 24.1f, 0f);
 	private static Vector3 CameraP1AimAng = new Vector3(-3f, 271f, 0f);
@@ -55,7 +60,11 @@ public class CameraScript : MonoBehaviour {
 			camera.transform.position = CameraP2KatanaPos;
 			camera.transform.eulerAngles = CameraP2KatanaAng;
 		}
+        else if (cv == CameraView.ThowringStar)
+        {
+            iTween.MoveTo(camera, HashThrow);
+        }
 
     }
 }
-public enum CameraView { Center, P1, P1A, P2, P2A, P2K }; 
+public enum CameraView { Center, P1, P1A, P2, P2A, P2K, ThowringStar };
