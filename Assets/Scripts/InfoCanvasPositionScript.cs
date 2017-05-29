@@ -24,10 +24,10 @@ public class InfoCanvasPositionScript : MonoBehaviour {
 	}
 
 	private void SetPositions(){
-		VikingPlayerInfo.rectTransform.anchoredPosition = new Vector2 (-(Screen.width/2)+130f, (Screen.height/2)-45f);
-		VikingLife.rectTransform.anchoredPosition = new Vector2 (-(Screen.width/2)+130f, (Screen.height/2)-75f);
-		SamuraiPlayerInfo.rectTransform.anchoredPosition = new Vector2 ((Screen.width/2)-130f, (Screen.height/2)-45f);
-		SamuraiLife.rectTransform.anchoredPosition = new Vector2 ((Screen.width/2)-130f, (Screen.height/2)-75f);
-		TurnInfo.rectTransform.anchoredPosition = new Vector2 (-(Screen.width/2)+130f, -(Screen.height/2)+45f);
+		VikingPlayerInfo.rectTransform.anchoredPosition = new Vector2 (-(Screen.width/2)+175f, (Screen.height/2)-45f);
+		VikingLife.rectTransform.anchoredPosition = new Vector2 (-(Screen.width/2)+175f, (Screen.height/2)-95f);
+		SamuraiPlayerInfo.rectTransform.anchoredPosition = new Vector2 ((Screen.width/2)-175f, (Screen.height/2)-45f);
+		SamuraiLife.rectTransform.anchoredPosition = new Vector2 ((Screen.width/2)-175f, (Screen.height/2)-95f);
+		TurnInfo.rectTransform.anchoredPosition = new Vector2 (-(Screen.width/2)+175f, -(Screen.height/2)+45f);
 	}
 }
