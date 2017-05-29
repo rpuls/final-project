@@ -5,6 +5,7 @@ using UnityEngine;
 public class CannonBallScript : MonoBehaviour {
     AudioSource cannonCollideAudio;
     public GameObject particlePrefab;
+    public TurnManager tm;
     // Use this for initialization
     void Start () {
         cannonCollideAudio = GetComponent<AudioSource>();
@@ -21,8 +22,10 @@ public class CannonBallScript : MonoBehaviour {
         {
             Debug.DrawRay(contact.point, contact.normal, Color.white);
         }
+        print(collision.transform.gameObject.tag);
         //if (collision.relativeVelocity.magnitude > 2)
-        if (GameObject.FindGameObjectWithTag("castle").Equals(collision.gameObject))
+        // Should have a reference instead of find
+        if (collision.transform.gameObject.tag.Equals("castle"))
         {
             print("Collided with: " + collision.gameObject.tag);
             cannonCollideAudio.Play();
@@ -31,7 +34,8 @@ public class CannonBallScript : MonoBehaviour {
             collision.gameObject.GetComponent<Rigidbody>().AddExplosionForce(1000, gameObject.transform.position, 1000, 100);
             var vel = GetComponent<Rigidbody>().velocity;      //to get a Vector3 representation of the velocity
             var speed = vel.magnitude;
-            print("Velocity of Cannonball: " + vel);
+            
+            //print("Velocity of Cannonball: " + vel);
             print("Speed of Cannonball: " + speed);
                 
         }
