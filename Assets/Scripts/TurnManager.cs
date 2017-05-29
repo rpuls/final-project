@@ -24,7 +24,7 @@ public class TurnManager : MonoBehaviour {
         {
             GameManager = gameManager.GetComponent<GameManager>();
         } catch (Exception e) {
-			print (e);
+			//print (e);
             GameManager = SetupDummyGame();
         }
         //
