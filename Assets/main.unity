@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4467703, g: 0.49173778, b: 0.5486029, a: 1}
+  m_IndirectSpecularColor: {r: 0.4467702, g: 0.49173772, b: 0.5486022, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -588,6 +588,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114406504105171476, guid: 89885e98a658ad545969a9483453c652,
+        type: 2}
+      propertyPath: opponentWall
+      value: 
+      objectReference: {fileID: 888825109}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89885e98a658ad545969a9483453c652, type: 2}
   m_IsPrefabParent: 0
@@ -2031,6 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeaSnakePrefab: {fileID: 1865016549}
   turnmanager: {fileID: 1264832140}
+  opponentWall: {fileID: 1161158853}
 --- !u!1 &635405581
 GameObject:
   m_ObjectHideFlags: 0
