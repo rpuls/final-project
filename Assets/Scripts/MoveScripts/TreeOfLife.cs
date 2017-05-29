@@ -67,6 +67,7 @@ public class TreeOfLife : MonoBehaviour, IMove {
 		yield return new WaitForSeconds (0.1f);
 		RestoreHPText.text = "RESTORE HP!\n...................";
 		yield return new WaitForSeconds (0.1f);
+		turnManager.GameManager.playerTwo.lifeLeft = 100;
 		//turnManager. SET HP TO 100
 		RestoreHPText.text = "HP RESTORED!";
 		yield return new WaitForSeconds (0.1f);

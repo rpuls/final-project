@@ -40,6 +40,7 @@ public class KatanaScript : MonoBehaviour, IMove {
 			yield return new WaitForSeconds (1.1f);
 		} else {
 			iTween.MoveTo (KatanaPrefab, Attack);
+			turnmanager.GameManager.playerOne.GiveDamage (20);
 			yield return new WaitForSeconds (1.1f);
 		}
 		yield return new WaitForSeconds (1f);
