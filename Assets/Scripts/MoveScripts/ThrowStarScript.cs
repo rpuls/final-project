@@ -9,10 +9,11 @@ public class ThrowStarScript : MonoBehaviour, IMove {
     public GameObject SpinnerImg;
     public GameObject Arrow;
     public TurnManager Turnmanager;
-    public int SpinnerSpeed;
-    private int SpinnerSpeedStartValue;
+    public float SpinnerSpeed;
+    private float SpinnerSpeedStartValue;
     private bool StopSpinner;
     private bool SlowDownSpinner;
+    private bool ActivateSpinner;
     public GameObject ThrowingStarPrefab;
     private Vector3 SpawnPos1 = new Vector3(92.1F, 57.8F, 54.7F);
     private Vector3 SpawnPos2 = new Vector3(92F, 65F, -85F);
@@ -20,25 +21,6 @@ public class ThrowStarScript : MonoBehaviour, IMove {
     // Use this for initialization
     void Start () {
 	}
-
-    private IEnumerator StartSpinner()
-    {
-        Arrow.transform.localEulerAngles = new Vector3(Arrow.transform.localEulerAngles.x, Arrow.transform.localEulerAngles.y, 360);
-        while (!StopSpinner)
-        {
-            yield return new WaitForSeconds(0.001F);
-            if (SlowDownSpinner)
-            {
-                SpinnerSpeed--;
-                if (SpinnerSpeed <= 0)
-                {
-                    StopSpinner = true;
-                    CalculateEndPosition(Arrow.transform.localEulerAngles.z);
-                }
-            }
-            Arrow.transform.localEulerAngles = new Vector3(Arrow.transform.localEulerAngles.x, Arrow.transform.localEulerAngles.y, Arrow.transform.localEulerAngles.z - SpinnerSpeed);
-        }
-    }
 
     private void CalculateEndPosition(float z)
     {
@@ -113,9 +95,8 @@ public class ThrowStarScript : MonoBehaviour, IMove {
     private IEnumerator CreateThrowingStars(int stars)
     {
         CameraScript.ChangeCamera(CameraView.ThowringStar);
-        int count = 0;
         bool flag = true;
-        while (count < stars)
+        for (int count = 0; count < stars; count++)
         {
             if (flag) {
                 Instantiate(ThrowingStarPrefab, SpawnPos1, Quaternion.identity);
@@ -124,7 +105,6 @@ public class ThrowStarScript : MonoBehaviour, IMove {
              Instantiate(ThrowingStarPrefab, SpawnPos2, Quaternion.identity);
         }
             flag = !flag;
-            count++;
             yield return new WaitForSeconds(0.5F);
         }
         yield return new WaitForSeconds(3.0F);
@@ -140,11 +120,27 @@ public class ThrowStarScript : MonoBehaviour, IMove {
             {
             SlowDownSpinner = true;
             }
-        }
+
+            if (!StopSpinner)
+            {
+                if (SlowDownSpinner)
+                {
+                    SpinnerSpeed -= 36;
+                    if (SpinnerSpeed <= 0)
+                    {
+                        SpinnerSpeed = 0;
+                        StopSpinner = true;
+                        CalculateEndPosition(Arrow.transform.localEulerAngles.z);
+                    }
+                }
+                Arrow.transform.Rotate(new Vector3(0F, 0F, -SpinnerSpeed) * Time.deltaTime);
+            }
+    }
 
     public void CleanUp()
     {
         SpinnerSpeed = SpinnerSpeedStartValue;
+        ActivateSpinner = false;
         Turnmanager.MoveIsDone(this.gameObject);
     }
 
@@ -157,6 +153,10 @@ public class ThrowStarScript : MonoBehaviour, IMove {
         SlowDownSpinner = false;
         SpinnerImg.SetActive(true);
         Arrow.SetActive(true);
-        StartCoroutine(StartSpinner());
+        ActivateSpinner = true;
+    }
+
+    public void FixedUpdate()
+    {
     }
 }
