@@ -96,7 +96,7 @@ public class ThrowStarScript : MonoBehaviour, IMove {
     {
         CameraScript.ChangeCamera(CameraView.ThowringStar);
         bool flag = true;
-        for (int count = 0; count < stars; count++)
+        for (int count = 0; count <= stars; count++)
         {
             if (flag) {
                 Instantiate(ThrowingStarPrefab, SpawnPos1, Quaternion.identity);
