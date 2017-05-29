@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 33675014797814452}
   - component: {fileID: 23764739400219104}
   - component: {fileID: 95103837620630692}
+  - component: {fileID: 114976124301241482}
   m_Layer: 0
   m_Name: woodenwall
   m_TagString: Untagged
@@ -2881,8 +2882,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1028597869452130}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 126.6, y: 3, z: 19}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4033304487458334}
@@ -8584,3 +8585,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114976124301241482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1028597869452130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a6567281d05f141acc2ab3b1c1e3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnmanager: {fileID: 0}
+  buildText: {fileID: 0}

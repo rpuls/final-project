@@ -19,6 +19,8 @@ public class CameraScript : MonoBehaviour {
 	private static Vector3 CameraP2Ang = new Vector3(27f, 90f, 0f);
 	private static Vector3 CameraP2AimPos = new Vector3(-139f,26.7f, 0f);
 	private static Vector3 CameraP2AimAng = new Vector3(11.2f, 89f, 0f);
+	private static Vector3 CameraP2KatanaPos = new Vector3(-145f,23f, -28f);
+	private static Vector3 CameraP2KatanaAng = new Vector3(10f, 56f, 0f);
 
 
     // Use this for initialization
@@ -49,7 +51,11 @@ public class CameraScript : MonoBehaviour {
 			camera.transform.position = CameraP2AimPos;
 			camera.transform.eulerAngles = CameraP2AimAng;
 		}
+		else if (cv == CameraView.P2K) {
+			camera.transform.position = CameraP2KatanaPos;
+			camera.transform.eulerAngles = CameraP2KatanaAng;
+		}
 
     }
 }
-public enum CameraView { Center, P1, P1A, P2, P2A }; 
+public enum CameraView { Center, P1, P1A, P2, P2A, P2K }; 
