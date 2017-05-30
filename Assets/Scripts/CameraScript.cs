@@ -20,8 +20,8 @@ public class CameraScript : MonoBehaviour {
 	private static Vector3 CameraP1AimAng = new Vector3(-3f, 271f, 0f);
 
 	//p2
-	private static Vector3 CameraP2Pos = new Vector3(-175f, 38f, 0f);
-	private static Vector3 CameraP2Ang = new Vector3(27f, 90f, 0f);
+	private static Vector3 CameraP2Pos = new Vector3(-254.97F, 55.9f, 0f);
+	private static Vector3 CameraP2Ang = new Vector3(12f, 90f, 0f);
 	private static Vector3 CameraP2AimPos = new Vector3(-139f,26.7f, 0f);
 	private static Vector3 CameraP2AimAng = new Vector3(11.2f, 89f, 0f);
 	private static Vector3 CameraP2KatanaPos = new Vector3(-145f,23f, -28f);
