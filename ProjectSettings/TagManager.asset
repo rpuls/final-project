@@ -10,6 +10,7 @@ TagManager:
   - castle
   - Thunder
   - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX

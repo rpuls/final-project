@@ -33,6 +33,16 @@ public class Wall : MonoBehaviour, IMove {
 
     public void DoMove()
     {
+        if (gameObject.name.Equals("samuraiwall"))
+        {
+            gameObject.transform.position = new Vector3(-91, 3.1f, -54.4f);
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(-90, 180, -80));
+        }
+        else if (gameObject.name.Equals("woodenwall"))
+        {
+            gameObject.transform.position = new Vector3(126.6f, 3f, 19);
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+        }
         this.gameObject.SetActive(true);
         turnsToStayAlive += 3;
         TurnManager.OnTurn += TurnPassed;
