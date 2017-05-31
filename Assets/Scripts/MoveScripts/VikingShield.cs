@@ -24,7 +24,7 @@ public class VikingShield : MonoBehaviour, IMove {
         this.gameObject.SetActive(true);
         Header.SetActive(true);
         TurnManager.OnTurn += TurnHasPassed;
-        TurnsReduceDamageCount += 3;
+        TurnsReduceDamageCount += 7;
         StartCoroutine(ReducesVikingDamage());
     }
 
