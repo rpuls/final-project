@@ -23,24 +23,35 @@ public class CannonBallScript : MonoBehaviour {
             Debug.DrawRay(contact.point, contact.normal, Color.white);
         }
         print(collision.transform.gameObject.tag);
-        //if (collision.relativeVelocity.magnitude > 2)
+        
         // Should have a reference instead of find
         
-        if (collision.transform.gameObject.tag.Equals("castle"))
+        if (collision.transform.gameObject.tag.Equals("castle") && !CollidingWithUs(collision))
         {
             print("Collided with: " + collision.gameObject.tag);
             cannonCollideAudio.Play();
             Explode();
             //gameObject.GetComponent<Rigidbody>().AddExplosionForce(10000,gameObject.transform.position,100000,100);
             collision.gameObject.GetComponent<Rigidbody>().AddExplosionForce(1000, gameObject.transform.position, 1000, 100);
-            var vel = GetComponent<Rigidbody>().velocity;      //to get a Vector3 representation of the velocity
-            var speed = vel.magnitude;
-            tm.GameManager.playerTwo.lifeLeft -= (int)speed/10;
-            print(tm.GameManager.playerTwo.lifeLeft);
-            //print("Velocity of Cannonball: " + vel);
-            print("Speed of Cannonball: " + speed);
+            DoDamage();
                 
         }
+    }
+    public bool CollidingWithUs(Collision collision)
+    {
+        return (collision.gameObject.name.Equals("samurai castle") && tm.CurrentTurnState==TurnManager.TurnState.PlayerTwo || collision.gameObject.name.Equals("viking castle") && tm.CurrentTurnState == TurnManager.TurnState.PlayerOne);
+    }
+
+    public void DoDamage()
+    {
+
+        var vel = GetComponent<Rigidbody>().velocity;      //to get a Vector3 representation of the velocity
+        var speed = vel.magnitude;
+        if (tm.CurrentTurnState == TurnManager.TurnState.PlayerOne)
+        {
+            tm.GameManager.playerTwo.lifeLeft -= (int)speed / 10;
+        }
+        else tm.GameManager.playerOne.lifeLeft -= (int)speed / 10;
     }
 
     void Explode()

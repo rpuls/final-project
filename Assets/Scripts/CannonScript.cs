@@ -79,20 +79,20 @@ public class CannonScript : MonoBehaviour, IMove
         // Make explosion to cover up spawn inacuracy?
         
         Vector3 direction = (cannon.transform.rotation) * Vector3.forward;
-        vik.GetComponent<Rigidbody>().isKinematic = true;
-        sam.GetComponent<Rigidbody>().isKinematic = true;
+        //vik.GetComponent<Rigidbody>().isKinematic = true;
+        //sam.GetComponent<Rigidbody>().isKinematic = true;
         if (cannon.name.Equals("ballista"))
         {
             
-            BoxCollider col=vik.GetComponent<BoxCollider>();
+            //BoxCollider col=vik.GetComponent<BoxCollider>();
             
-                col.enabled = false;
+                //col.enabled = false;
             
-            BoxCollider[] scol = sam.GetComponents<BoxCollider>();
-            foreach (BoxCollider c in scol)
-            {
-                c.enabled = false;
-            }
+            //BoxCollider[] scol = sam.GetComponents<BoxCollider>();
+            //foreach (BoxCollider c in scol)
+           // {
+            //    c.enabled = false;
+           // }
             //direction = new Vector3((direction.x), direction.y, direction.z);
             direction = Quaternion.Euler(0, -90, 0) * direction;
             //Quaternion.Euler
@@ -102,13 +102,27 @@ public class CannonScript : MonoBehaviour, IMove
         {
             //sam.GetComponent<Rigidbody>().isKinematic = true;
         }
-        GameObject clone = Instantiate(cannonBall, firepos, Quaternion.identity);
-        clone.SetActive(true);
-        clone.GetComponent<Rigidbody>().AddForce(direction * force);
-        clone.GetComponent<Rigidbody>().AddForce(Vector3.up * force/10);
+        // Cloning -> getting a new cannonball 
+
+        //GameObject clone = Instantiate(cannonBall, firepos, Quaternion.identity);
+        //clone.SetActive(true);
+        //clone.GetComponent<Rigidbody>().AddForce(direction * force);
+        //clone.GetComponent<Rigidbody>().AddForce(Vector3.up * force/10);
+
+
+        // reusing cannonball
+        cannonBall.SetActive(true);
+        cannonBall.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        cannonBall.transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        cannonBall.transform.position = firepos;
+        cannonBall.transform.rotation = Quaternion.identity;
+        cannonBall.GetComponent<Rigidbody>().AddForce(direction * force);
+        cannonBall.GetComponent<Rigidbody>().AddForce(Vector3.up * force / 10);
+
+
 
         // Insert waiting -> re disable kinematic
-        
+
         StartCoroutine(WaitForShot());
         //CleanUp();
         
@@ -118,6 +132,8 @@ public class CannonScript : MonoBehaviour, IMove
         print("Wait!");
         yield return new WaitForSeconds(8f);
         print("cleanup");
+        
+        cannonBall.SetActive(false);
         CleanUp();
         yield return new WaitForSeconds(4f);
         turnManager.MoveIsDone(gameObject);
@@ -146,17 +162,17 @@ public class CannonScript : MonoBehaviour, IMove
     {
 
         placeCastles();
-        BoxCollider col = vik.GetComponent<BoxCollider>();
+        //BoxCollider col = vik.GetComponent<BoxCollider>();
         
-            col.enabled = true;
+        //    col.enabled = true;
         
-        BoxCollider[] scol = sam.GetComponents<BoxCollider>();
-        foreach (BoxCollider c in scol)
-        {
-            c.enabled = true;
-        }
-        vik.GetComponent<Rigidbody>().isKinematic = false;
-        sam.GetComponent<Rigidbody>().isKinematic = false;
+        //BoxCollider[] scol = sam.GetComponents<BoxCollider>();
+        //foreach (BoxCollider c in scol)
+        //{
+        //    c.enabled = true;
+        //}
+        //vik.GetComponent<Rigidbody>().isKinematic = false;
+        //sam.GetComponent<Rigidbody>().isKinematic = false;
 
         fired = false;
         print(sam.transform.GetComponent<Rigidbody>().velocity);
