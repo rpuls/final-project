@@ -34,6 +34,7 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 			move = false;
 			if (position > thunderHitStart && position < thunderHitEnd) {
 				m_ThunderStrikeSound.Play ();
+				turnManager.GameManager.playerTwo.GiveDamage (33);
 				StartCoroutine (StrikeAnimator (m_thunderAnimation));
 			} else {
 				m_missText.SetActive (true);
