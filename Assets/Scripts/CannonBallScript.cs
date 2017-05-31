@@ -39,7 +39,8 @@ public class CannonBallScript : MonoBehaviour {
     }
     public bool CollidingWithUs(Collision collision)
     {
-        return (collision.gameObject.name.Equals("samurai castle") && tm.CurrentTurnState==TurnManager.TurnState.PlayerTwo || collision.gameObject.name.Equals("viking castle") && tm.CurrentTurnState == TurnManager.TurnState.PlayerOne);
+        return ((collision.gameObject.name.Equals("samurai castle") || collision.gameObject.name.Equals("samuraiwall")) && tm.CurrentTurnState==TurnManager.TurnState.PlayerTwo 
+            || (collision.gameObject.name.Equals("viking castle")|| (collision.gameObject.name.Equals("woodenwall"))) && tm.CurrentTurnState == TurnManager.TurnState.PlayerOne);
     }
 
     public void DoDamage()
