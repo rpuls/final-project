@@ -17,11 +17,6 @@ public class PlayerStats : MonoBehaviour {
         UnityEngine.Object.DontDestroyOnLoad(this);
         lifeLeft = 100;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void SetDamageMultiplier (float multiplier)
     {

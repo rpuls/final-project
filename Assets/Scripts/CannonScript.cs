@@ -18,8 +18,7 @@ public class CannonScript : MonoBehaviour, IMove
     public TurnManager turnManager;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         sam=GameObject.Find("samurai castle");
         vik=GameObject.Find("viking castle");
         cannonAudio = GetComponent<AudioSource>();
@@ -32,11 +31,11 @@ public class CannonScript : MonoBehaviour, IMove
         if (!fired)
         {
             moveCannon();
-            if (Input.GetKey("x"))
+            if (Input.GetKey("space"))
             {
                 force += 100;
             }
-            else if (Input.GetKeyUp("x"))
+            else if (Input.GetKeyUp("space"))
             {
                 fired = true;
                 AttackMove(force);
@@ -46,18 +45,9 @@ public class CannonScript : MonoBehaviour, IMove
     
     }
 
-
-
-
-    public void moveCannon()
-    {
-
-
-        //if (Input.GetKey("t")) cannonDY++;
-        //else if (Input.GetKey("g")) cannonDY--;
-        //else cannonDY = 0;
-        if (Input.GetKey("f")) cannonDX--;
-        else if (Input.GetKey("h")) cannonDX++;
+    public void moveCannon() {
+		if (Input.GetKey(KeyCode.LeftArrow)) cannonDX--;
+		else if (Input.GetKey(KeyCode.RightArrow)) cannonDX++;
         else cannonDX = 0;
         gameObject.transform.Rotate(0, cannonDX, cannonDY);
     }

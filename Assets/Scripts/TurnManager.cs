@@ -12,10 +12,10 @@ public class TurnManager : MonoBehaviour {
     public GameObject CanvasPlayerTwo;
     public GameObject MoveCanvas;
     public GameObject InfoCanvas;
-    public bool HasPlayerChooseCard  { get; set; }
+	public bool HasPlayerChooseCard  { get; set; }
     public delegate void TurnPassed();
     public static event TurnPassed OnTurn;
-	
+
 	void Start () {
         // This gets the Game Manager from the GameManager Object!
         HasPlayerChooseCard = false;
@@ -38,8 +38,8 @@ public class TurnManager : MonoBehaviour {
         // Method that is suppose to run if Game is not started from Welcome Scene
         PlayerStats p1 = gameObject.AddComponent<PlayerStats>() as PlayerStats;
         PlayerStats p2 = gameObject.AddComponent<PlayerStats>() as PlayerStats;
-        p1.userName = "Hans Peter";
-        p2.userName = "Grete Elisabeth";
+        p1.userName = "Thor";
+        p2.userName = "Kawakami";
         GameManager gm = gameObject.AddComponent<GameManager>() as GameManager;
         p1.lifeLeft = 100;
         p2.lifeLeft = 100;
@@ -110,17 +110,6 @@ public class TurnManager : MonoBehaviour {
         CanvasPlayerOne.SetActive(false);
         CanvasPlayerTwo.SetActive(true);
     }
-
-    
-	/*
-    private void EditTurnButton()
-    {
-        GameObject Turnbutton = GameObject.Find("End Turn Button Text");
-        Turnbutton.GetComponent<Text>().text = "End Turn";
-    }*/
-
-
-
 
     /*
      * This Method sets the Canvas

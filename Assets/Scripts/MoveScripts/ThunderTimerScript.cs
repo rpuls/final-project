@@ -37,10 +37,15 @@ public class ThunderTimerScript : MonoBehaviour, IMove {
 				turnManager.GameManager.playerTwo.GiveDamage (33);
 				StartCoroutine (StrikeAnimator (m_thunderAnimation));
 			} else {
-				m_missText.SetActive (true);
-                CleanUp();
+				StartCoroutine (Miss ());
             }
 		}
+	}
+
+	private IEnumerator Miss(){
+		m_missText.SetActive (true);
+		yield return new WaitForSeconds (2f);
+		CleanUp();
 	}
 
 	private IEnumerator StrikeAnimator(GameObject thunder_prefab){

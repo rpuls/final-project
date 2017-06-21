@@ -11,14 +11,6 @@ public class KatanaScript : MonoBehaviour, IMove {
 	private Hashtable Attack = iTween.Hash("x", 110f, "y", 16f, "z", 0f, "time", 1);//, "easetype", iTween.EaseType.easeInQuad);
 	private Hashtable AttackFail = iTween.Hash("x", 63f, "y", 16f, "z", 0f, "time", 1);//, "easetype", iTween.EaseType.easeInQuad);
 
-	// Use this for initialization
-	void Start () {
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	//Activates itself
 	public void DoMove() {

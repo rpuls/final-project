@@ -12,15 +12,6 @@ public class SeaDragonScript : MonoBehaviour, IMove {
 	private Hashtable Attack = iTween.Hash("x", -97f, "y", 7f, "z", 6.5f, "time", 1);//, "easetype", iTween.EaseType.easeInQuad);
 	private Hashtable AttackFail = iTween.Hash("x", -45f, "y", 7f, "z", 6.5f, "time", 1);//, "easetype", iTween.EaseType.easeInQuad);
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	//Activates itself
 	public void DoMove()
 	{

@@ -10,10 +10,6 @@ public class Wall : MonoBehaviour, IMove {
     private int turnsToStayAlive = 0;
     public GameObject buildText;
 
-    // Use this for initialization
-    void Start () {
-	}
-
     private void TurnPassed()
     {
         turnCount++;

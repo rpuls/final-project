@@ -12,7 +12,6 @@ public class WelcomeButtons : MonoBehaviour {
 		SceneManager.LoadScene ("main");
 	}
 
-
 	public void YouSuck() {
 		Application.Quit();
 	}

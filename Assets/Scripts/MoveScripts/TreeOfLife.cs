@@ -8,16 +8,6 @@ public class TreeOfLife : MonoBehaviour, IMove {
 	public Text RestoreHPText;
 	public TurnManager turnManager;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	//Activates itself
 	public void DoMove() {
 		CleanUp();

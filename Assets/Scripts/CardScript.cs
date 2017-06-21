@@ -32,10 +32,6 @@ public class CardScript : MonoBehaviour {
         OriginalPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
 	}
 
-	void Update () {
-		
-	}
-
 	//public methods to call from trigger.
 	public void FlipCard(){
         if (Turnmanager.HasPlayerChooseCard) return;

@@ -156,7 +156,4 @@ public class ThrowStarScript : MonoBehaviour, IMove {
         ActivateSpinner = true;
     }
 
-    public void FixedUpdate()
-    {
-    }
 }
